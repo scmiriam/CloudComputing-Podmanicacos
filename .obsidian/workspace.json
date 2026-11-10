@@ -11,14 +11,14 @@
             "id": "988124b78a443aa4",
             "type": "leaf",
             "state": {
-              "type": "split-diff-view",
+              "type": "markdown",
               "state": {
-                "aFile": ".obsidian/workspace.json",
-                "bFile": ".obsidian/workspace.json",
-                "aRef": ""
+                "file": "00_MOC - Digital Twins.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "diff",
-              "title": "Diff: workspace.json  (Working Tree)"
+              "icon": "lucide-file",
+              "title": "00_MOC - Digital Twins"
             }
           }
         ]
@@ -83,7 +83,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 340.16668701171875
+    "width": 310.16668701171875
   },
   "right": {
     "id": "5c93f1ca06f66690",
@@ -182,7 +182,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 390.833251953125
+    "width": 539.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -196,37 +196,43 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "988124b78a443aa4",
+  "active": "a0c19c7e33b97513",
   "lastOpenFiles": [
-    "Digital_Twins/Digital_Twins_Intro/00_MOC - Digital Twins.md",
-    "Digital_Twins/Digital_Twins_Intro/06_Sources/IBM -  What is a Digital Twin.md",
-    "Digital_Twins/Digital_Twins_Intro/06_Sources/Draft Space Technology Roadmap Modeling, Simulation, Information Technology & Processing Roadmap.md",
-    "Digital_Twins/Digital_Twins_Intro/06_Sources/Digital Twin Mitigating Unpredictable, Undesirable Emergent Behavior in Complex Systems.md",
-    "Digital_Twins/Digital_Twins_Intro/06_Sources/Digital Twin and Digital Thread A Unified Architectural Approach.md",
+    "Digital_Twins/CasosDeUso/02_Healthcare - Living Heart Project and Cardiac Digital Twins.md",
+    "00_MOC - Digital Twins.md",
+    "Digital_Twins/CasosDeUso/03_Smart City - Virtual Singapore.md",
+    "Digital_Twins/CasosDeUso/00_MOC - Use Cases.md",
+    "Digital_Twins/Digital_Twins_Intro/Sources/Digital Twin Mitigating Unpredictable, Undesirable Emergent Behavior in Complex Systems.md",
+    "Digital_Twins/Digital_Twins_Intro/Definition and Fundaments/Essential Concepts/What is a Digital Twin.md",
+    "Digital_Twins/Digital_Twins_Intro/Sources/Draft Space Technology Roadmap Modeling, Simulation, Information Technology & Processing Roadmap.md",
+    "Digital_Twins/CasosDeUso/Sources/The Living Heart Project A robust and integrative simulator for human heart function.md",
+    "Digital_Twins/CasosDeUso/Sources/Singapore Land Authority - Virtual Singapore.md",
+    "Digital_Twins/Digital_Twins_Intro/Sources/IBM -  What is a Digital Twin.md",
+    "Digital_Twins/Digital_Twins_Intro/Sources/Digital Twin and Digital Thread A Unified Architectural Approach.md",
+    "Digital_Twins/Digital_Twins_Intro/Definition and Fundaments/Clarification/Digital Twin vs. Digital Thread.md",
+    "README.md",
+    "Digital_Twins/CasosDeUso/01_Manufacturing - BMW Group Virtual Factory.md",
+    "Digital_Twins/CasosDeUso/Sources/City Digital Twin Potentials A Review and Research Agenda.md",
+    "Digital_Twins/CasosDeUso/Sources/The Digital Twin to enable the vision of precision cardiology.md",
+    "Digital_Twins/CasosDeUso/Sources/NVIDIA - BMW Group Starts Global Rollout of NVIDIA Omniverse.md",
+    "Digital_Twins/CasosDeUso/Sources/Digital twins - Batty.md",
+    "Digital_Twins/CasosDeUso/Sources/Digital Twin in Industry State-of-the-Art.md",
+    "Digital_Twins/CasosDeUso/Sources/Digital Twin Shop-Floor A New Shop-Floor Paradigm Towards Smart Manufacturing.md",
+    "Digital_Twins/CasosDeUso/Sources/Digital Twin Enabling Technologies, Challenges and Open Research.md",
+    "Digital_Twins/CasosDeUso/Sources",
+    "Digital_Twins/CasosDeUso",
     "Digital_Twins/Demo/Demo - Gemelo digital del aula.md",
     "Digital_Twins/Demo/index.html",
     "Digital_Twins/Demo/sensor.py",
     "Digital_Twins/Demo",
-    "Digital_Twins/Digital_Twins_Intro/01_Definition and Fundaments/Clarification/Digital Twin vs. Digital Thread.md",
-    "Digital_Twins/Digital_Twins_Intro/01_Definition and Fundaments/Clarification/Differences (Digital Twin vs. Simulation vs. 3D Model).md",
-    "Digital_Twins/Digital_Twins_Intro/01_Definition and Fundaments/Core Architecture/Bidirectional Data Loop (Closed-Loop Feedback).md",
-    "Digital_Twins/Digital_Twins_Intro/01_Definition and Fundaments/Core Architecture/Key Components of a Digital Twin.md",
-    "Digital_Twins/Digital_Twins_Intro/01_Definition and Fundaments/Essential Concepts/History and Origin (Michael Grieves and NASA).md",
-    "Digital_Twins/Digital_Twins_Intro/01_Definition and Fundaments/Essential Concepts/What is a Digital Twin.md",
-    "Digital_Twins/Digital_Twins_Intro/06_Sources/Digital Twin in manufacturing A categorical literature review and classification.md",
-    "IBM - What is a Digital Twin.md",
-    "Draft Space Technology Roadmap (NASA TA11).md",
-    "History and Origins (Michael Grieves and NASA).md",
-    "Digital_Twins/Digital_Twins_Intro/06_Sources/IBM - What is a Digital Twin.md",
-    "Digital_Twins/Digital_Twins_Intro/01_Definición y Fundamentos/Concepto Esencial/Componentes clave.md",
-    "Digital_Twins/Digital_Twins_Intro/01_Definition and Fundaments/Clarification",
-    "Digital_Twins/Digital_Twins_Intro/01_Definition and Fundaments/Core Architecture",
-    "Digital_Twins/Digital_Twins_Intro/01_Definition and Fundaments/Essential Concepts",
-    "Digital_Twins/Digital_Twins_Intro/06_Sources",
-    "Digital_Twins/Digital_Twins_Intro/Tipos",
-    "Digital_Twins/Digital_Twins_Intro/01_Definition and Fundaments",
-    "Introduction.md",
-    "cree un enlace.md",
-    "Digital_Twins/Digital_Twins_Intro"
+    "Digital_Twins/Digital_Twins_Intro/Definition and Fundaments/Clarification/Differences (Digital Twin vs. Simulation vs. 3D Model).md",
+    "Digital_Twins/Digital_Twins_Intro/Definition and Fundaments/Core Architecture/Bidirectional Data Loop (Closed-Loop Feedback).md",
+    "Digital_Twins/Digital_Twins_Intro/Definition and Fundaments/Core Architecture/Key Components of a Digital Twin.md",
+    "Digital_Twins/Digital_Twins_Intro/Definition and Fundaments/Essential Concepts/History and Origin (Michael Grieves and NASA).md",
+    "Digital_Twins/Digital_Twins_Intro/Definition and Fundaments/Clarification",
+    "Digital_Twins/Digital_Twins_Intro/Definition and Fundaments/Core Architecture",
+    "Digital_Twins/Digital_Twins_Intro/Definition and Fundaments/Essential Concepts",
+    "Digital_Twins/Digital_Twins_Intro/Sources",
+    "Digital_Twins/Digital_Twins_Intro/Tipos"
   ]
 }
