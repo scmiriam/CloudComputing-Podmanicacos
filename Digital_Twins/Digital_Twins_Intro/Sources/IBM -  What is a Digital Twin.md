@@ -28,6 +28,8 @@ tags:
   - [[Differences (Digital Twin vs. Simulation vs. 3D Model)]]
   - [[Digital Twin vs. Digital Thread]]
   - [[Key Components of a Digital Twin]]
+  - [[Hierarchical Types (Component, Asset, System, Process)]]
+  - [[Classification Dimensions of Digital Twins]]
 
 ## Source Summary
 A reference explainer published by IBM Think detailing digital twin technology across key dimensions:

@@ -12,6 +12,17 @@
 - [[Digital Twin and Digital Thread A Unified Architectural Approach]]
 - [[Digital Twin in manufacturing A categorical literature review and classification]]
 ## 2. Levels and Types (Persona 2)
+- Overview: [[Classification Dimensions of Digital Twins]] - map of all classification axes (levels vs. types)
+- Levels: [[Maturity Levels (Arup and Madni Frameworks)]] and [[Levels of Autonomy (Roles and Automation)]]
+- Types: [[Hierarchical Types (Component, Asset, System, Process)]], [[Lifecycle Types (Prototype, Instance, Aggregate)]] and [[Functional Types (Product, Production, Performance)]]
+
+ ### **Sources and references**
+- [[Arup - Digital Twin Towards a Meaningful Framework]]
+- [[Leveraging Digital Twin Technology in Model-Based Systems Engineering]]
+- [[Digital Twin Where do humans fit in]]
+- [[ISO 23247-1 Digital twin framework for manufacturing]]
+- [[Siemens - Digital Twin of Product, Production and Performance]]
+
 
 ## 3. Plataforms and technologies (Persona 3) 
 

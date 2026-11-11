@@ -28,6 +28,9 @@ tags:
   - [[History and Origin (Michael Grieves and NASA)]]
   - [[Key Components of a Digital Twin]]
   - [[Bidirectional Data Loop (Closed-Loop Feedback)]]
+  - [[Lifecycle Types (Prototype, Instance, Aggregate)]]
+  - [[Hierarchical Types (Component, Asset, System, Process)]]
+  - [[Classification Dimensions of Digital Twins]]
 
 ## Source Summary
 A seminal conceptual text expanding Michael Grieves's original 2002–2003 PLM premise into a comprehensive theoretical framework for managing complex physical systems:
