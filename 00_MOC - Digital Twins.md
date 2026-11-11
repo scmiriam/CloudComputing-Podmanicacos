@@ -11,7 +11,7 @@
 - [[Draft Space Technology Roadmap Modeling, Simulation, Information Technology & Processing Roadmap]]
 - [[Digital Twin and Digital Thread A Unified Architectural Approach]]
 - [[Digital Twin in manufacturing A categorical literature review and classification]]
-## 2. Levels and Types (Persona 2)
+## 2. Levels and Types (Pau)
 - Overview: [[Classification Dimensions of Digital Twins]] - map of all classification axes (levels vs. types)
 - Levels: [[Maturity Levels (Arup and Madni Frameworks)]] and [[Levels of Autonomy (Roles and Automation)]]
 - Types: [[Hierarchical Types (Component, Asset, System, Process)]], [[Lifecycle Types (Prototype, Instance, Aggregate)]] and [[Functional Types (Product, Production, Performance)]]
