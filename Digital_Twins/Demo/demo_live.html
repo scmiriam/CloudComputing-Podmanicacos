@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Live demo · Classroom digital twin</title>
+<script src="https://cdn.jsdelivr.net/npm/mqtt@5.10.1/dist/mqtt.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.js"></script>
+<style>
+  :root { --bg:#0d1624; --card:#172539; --line:#2a3d58; --ink:#eef2f6; --soft:#b8c6d6; --quiet:#8494a8;
+          --warm:#f2a65a; --cool:#4cc9f0; --good:#3ddc97; --warn:#f2c14e; --bad:#ff6b6b; }
+  * { box-sizing:border-box; }
+  html, body { margin:0; height:100%; background:var(--bg); color:var(--ink);
+               font-family:"Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif; }
+  .page { height:100vh; display:flex; flex-direction:column; gap:16px; padding:20px 24px; }
+  header { display:flex; justify-content:space-between; align-items:center; gap:16px; }
+  h1 { margin:0; font-size:30px; }
+  .sub { color:var(--quiet); font-size:17px; margin-top:4px; }
+  .pill { display:inline-flex; align-items:center; gap:10px; padding:8px 16px; border-radius:999px;
+          background:var(--card); border:1px solid var(--line); font-size:17px; color:var(--soft); }
+  .dot { width:12px; height:12px; border-radius:50%; background:var(--quiet); }
+  .dot.on { background:var(--good); box-shadow:0 0 0 5px rgba(61,220,151,.18); }
+  .dot.off { background:var(--bad); }
+  .main { flex:1; min-height:0; display:grid; grid-template-columns: 38fr 62fr; gap:20px; }
+  /* Terminal (the "physical" classroom) */
+  .term { background:#070b12; border:2px solid var(--line); border-radius:16px; display:flex; flex-direction:column; min-height:0; overflow:hidden; }
+  .bar { display:flex; align-items:center; gap:10px; padding:10px 16px; background:#132036; color:var(--quiet); font-size:16px; }
+  .b { width:13px; height:13px; border-radius:50%; display:inline-block; }
+  #out { flex:1; min-height:0; margin:0; padding:14px 18px; overflow:hidden; display:flex; flex-direction:column; justify-content:flex-end;
+         font-family:Consolas, "Cascadia Mono", "Courier New", monospace; font-size:19px; line-height:1.5; color:var(--soft); white-space:pre; }
+  .w { color:var(--warm); } .c { color:var(--cool); font-weight:700; } .d { color:var(--quiet); } .e { color:var(--bad); }
+  /* Dashboard (the twin) */
+  .dash { display:flex; flex-direction:column; gap:16px; min-height:0; }
+  .alert { visibility:hidden; padding:12px 16px; border-radius:12px; font-weight:700; font-size:20px;
+           background:rgba(255,107,107,.14); border:2px solid var(--bad); color:#ff8a8a; }
+  .alert.show { visibility:visible; animation:pulse 1.4s infinite; }
+  @keyframes pulse { 50% { opacity:.6; } }
+  .grid { display:grid; grid-template-columns: 1.15fr 1fr 1fr 1.4fr; gap:14px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:14px 16px; }
+  .label { color:var(--quiet); font-size:17px; }
+  .value { font-size:44px; font-weight:700; margin-top:4px; font-variant-numeric:tabular-nums; transition:color .4s; }
+  .unit { font-size:18px; color:var(--quiet); font-weight:500; margin-left:4px; }
+  .barc { height:7px; border-radius:4px; background:var(--line); margin-top:10px; overflow:hidden; }
+  .barc > div { height:100%; width:0; background:var(--good); transition:width .4s, background .4s; }
+  button { width:100%; margin-top:10px; font:inherit; font-weight:700; font-size:22px; padding:12px; border-radius:12px; border:0;
+           cursor:pointer; background:var(--cool); color:#0d1624; transition:transform .15s; }
+  button:active { transform:scale(.96); }
+  button.stop { background:#3a4a62; color:var(--ink); }
+  button:disabled { opacity:.45; cursor:not-allowed; }
+  .lower { flex:1; min-height:0; display:grid; grid-template-columns: 2fr 1fr; gap:14px; }
+  .box { display:flex; flex-direction:column; min-height:0; }
+  .chartbox { position:relative; flex:1; min-height:0; }
+  h2 { font-size:17px; color:var(--quiet); font-weight:600; margin:0 0 8px; }
+  #log { flex:1; min-height:0; overflow-y:auto; margin:0; padding:0; list-style:none;
+         font-family:Consolas, "Courier New", monospace; font-size:15px; color:var(--soft); }
+  #log li { padding:4px 0; border-bottom:1px dashed var(--line); }
+  #log li.cmd { color:var(--cool); font-weight:700; } #log li.warn { color:var(--bad); font-weight:700; }
+  footer { color:var(--quiet); font-size:14px; display:flex; justify-content:space-between; gap:16px; }
+  code { color:var(--soft); }
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <div>
+      <h1>Digital twin · UJI Classroom 1</h1>
+      <div class="sub">Sensor → cloud MQTT broker → dashboard → command back (all through the real broker)</div>
+    </div>
+    <div class="pill"><span id="connDot" class="dot"></span><span id="connText">Connecting…</span></div>
+  </header>
+
+  <div class="main">
+    <section class="term">
+      <div class="bar"><span class="b" style="background:#ff6b6b"></span><span class="b" style="background:#f2c14e"></span><span class="b" style="background:#3ddc97"></span>&nbsp; sensor · “physical classroom”</div>
+      <div id="out"></div>
+    </section>
+
+    <section class="dash">
+      <div id="alert" class="alert">⚠ CO₂ above 1000 ppm: poor air quality. Ventilation needed.</div>
+      <div class="grid">
+        <div class="card"><div class="label">CO₂</div><div class="value"><span id="co2">--</span><span class="unit">ppm</span></div><div class="barc"><div id="co2Bar"></div></div></div>
+        <div class="card"><div class="label">Temperature</div><div class="value"><span id="temp">--</span><span class="unit">°C</span></div></div>
+        <div class="card"><div class="label">Humidity</div><div class="value"><span id="hum">--</span><span class="unit">%</span></div></div>
+        <div class="card"><div class="label">Ventilation: <b id="ventState">--</b></div><button id="btn" disabled>Ventilate</button></div>
+      </div>
+      <div class="lower">
+        <div class="card box"><h2>Real-time CO₂</h2><div class="chartbox"><canvas id="chartCo2"></canvas></div></div>
+        <div class="card box"><h2>Event log</h2><ul id="log"></ul></div>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <span>Broker: <code id="brokerTxt"></code> · Topic: <code id="topicTxt"></code></span>
+    <span>Shortcuts: <b>V</b> ventilate/stop · <b>F</b> full screen</span>
+  </footer>
+</div>
+
+<script>
+/* ---------- Configuration (same defaults as index.html / sensor.py) ----------
+   URL options:  ?broker=wss://...  &topic=...  &interval=2
+                 &sensor=off  -> do not run the built-in sensor (use the real sensor.py instead) */
+const params   = new URLSearchParams(location.search);
+const BROKER   = params.get("broker") || "wss://broker.hivemq.com:8884/mqtt";
+const TOPIC    = params.get("topic")  || "uji-ccdt-podmanicacos/classroom1";
+const INTERVAL = Math.max(0.5, parseFloat(params.get("interval") || "2")) * 1000;
+const RUN_SENSOR = params.get("sensor") !== "off";
+const T_SENS = TOPIC + "/sensors", T_CMD = TOPIC + "/commands";
+const THRESHOLD = 1000, MAX_POINTS = 60;
+const $ = id => document.getElementById(id);
+$("brokerTxt").textContent = BROKER; $("topicTxt").textContent = TOPIC;
+
+/* ---------- Left pane: built-in sensor (port of sensor.py) ---------- */
+const lines = [];
+function term(html) { lines.push(html); if (lines.length > 60) lines.shift(); $("out").innerHTML = lines.join("\n"); }
+const R = (a, b) => a + Math.random() * (b - a);
+
+if (RUN_SENSOR) {
+  const state = { co2: 650, temp: 21.5, hum: 45, ventilating: false };
+  term('<span class="d">$ python sensor.py</span>');
+  term("Connecting to " + BROKER.replace(/^wss?:\/\//, "").replace(/\/mqtt$/, "") + " ...");
+  const sensor = mqtt.connect(BROKER, { clientId: "classroom-sensor-" + Math.floor(R(1000, 9999)), reconnectPeriod: 2000, connectTimeout: 10000 });
+  sensor.on("connect", () => {
+    term("Connected to " + BROKER.replace(/^wss?:\/\//, "").replace(/\/mqtt$/, ""));
+    sensor.subscribe(T_CMD);
+    term("Publishing on  " + T_SENS); term("Listening on   " + T_CMD); term("");
+  });
+  sensor.on("error", e => term('<span class="e">Connection error: ' + e.message + '</span>'));
+  sensor.on("message", (topic, payload) => {
+    const cmd = payload.toString().trim().toLowerCase();
+    if (cmd === "ventilate") { state.ventilating = true;  term('<span class="c">&gt;&gt;&gt; Command received: VENTILATE (opening ventilation)</span>'); }
+    else if (cmd === "stop") { state.ventilating = false; term('<span class="c">&gt;&gt;&gt; Command received: STOP (closing ventilation)</span>'); }
+    else term('<span class="c">&gt;&gt;&gt; Unknown command: ' + cmd + '</span>');
+  });
+  setInterval(() => {
+    if (!sensor.connected) return;
+    if (state.ventilating) { state.co2 -= R(25, 45); state.temp -= R(.02, .08); state.hum -= R(.1, .3); }
+    else { state.co2 += R(10, 30); state.temp += R(0, .05); state.hum += R(0, .15); }
+    state.co2 = Math.max(420, Math.min(state.co2, 2500));
+    state.temp = Math.max(18, Math.min(state.temp, 28));
+    state.hum = Math.max(30, Math.min(state.hum, 70));
+    const r = { co2: Math.round(state.co2), temp: +(state.temp + R(-.1, .1)).toFixed(1), hum: +(state.hum + R(-.3, .3)).toFixed(1),
+                ventilating: state.ventilating, ts: Date.now() / 1000 };
+    sensor.publish(T_SENS, JSON.stringify(r));
+    term('<span class="w">CO2 ' + String(r.co2).padStart(5) + ' ppm</span> | ' + r.temp.toFixed(1).padStart(4) + ' °C | ' +
+         r.hum.toFixed(1).padStart(4) + ' % | ventilation ' + (r.ventilating ? "ON " : "OFF"));
+  }, INTERVAL);
+} else {
+  term('<span class="d">Built-in sensor disabled (?sensor=off).</span>');
+  term('<span class="d">Run the real one in a terminal:  python sensor.py</span>');
+}
+
+/* ---------- Right pane: dashboard (same logic as index.html) ---------- */
+function log(text, cls) {
+  const li = document.createElement("li");
+  li.textContent = new Date().toLocaleTimeString() + "  " + text;
+  if (cls) li.className = cls;
+  $("log").prepend(li);
+  while ($("log").children.length > 80) $("log").lastChild.remove();
+}
+const chart = new Chart($("chartCo2"), {
+  type: "line",
+  data: { labels: [], datasets: [
+    { label: "CO₂ (ppm)", data: [], borderColor: "#4cc9f0", backgroundColor: "rgba(76,201,240,.15)", fill: true, tension: .3, pointRadius: 0, borderWidth: 3 },
+    { label: "1000 ppm threshold", data: [], borderColor: "#ff6b6b", borderDash: [8, 6], pointRadius: 0, borderWidth: 2, fill: false }
+  ]},
+  options: { animation: false, maintainAspectRatio: false,
+    scales: { x: { ticks: { color: "#8494a8", maxTicksLimit: 6, font: { size: 14 } }, grid: { display: false } },
+              y: { suggestedMin: 400, suggestedMax: 1400, ticks: { color: "#8494a8", font: { size: 14 } }, grid: { color: "#2a3d58" } } },
+    plugins: { legend: { labels: { color: "#b8c6d6", boxWidth: 14, font: { size: 15 } } } } }
+});
+let ventilating = false, alertActive = false, first = true;
+function render(d) {
+  $("co2").textContent = d.co2; $("temp").textContent = d.temp.toFixed(1); $("hum").textContent = d.hum.toFixed(1);
+  const pct = Math.min(100, (d.co2 - 400) / (1500 - 400) * 100);
+  const color = d.co2 > THRESHOLD ? "var(--bad)" : d.co2 > 800 ? "var(--warn)" : "var(--good)";
+  $("co2Bar").style.width = pct + "%"; $("co2Bar").style.background = color; $("co2").style.color = color;
+  if (d.co2 > THRESHOLD && !alertActive) { alertActive = true; log("ALERT: CO₂ " + d.co2 + " ppm", "warn"); }
+  if (d.co2 <= THRESHOLD && alertActive) { alertActive = false; log("CO₂ back below the threshold"); }
+  $("alert").classList.toggle("show", alertActive);
+  if (d.ventilating !== ventilating) log("Sensor confirms ventilation " + (d.ventilating ? "OPEN" : "CLOSED"));
+  ventilating = !!d.ventilating;
+  $("ventState").textContent = ventilating ? "Open" : "Closed";
+  $("ventState").style.color = ventilating ? "var(--cool)" : "var(--quiet)";
+  $("btn").textContent = ventilating ? "Stop ventilation" : "Ventilate";
+  $("btn").classList.toggle("stop", ventilating);
+  chart.data.labels.push(new Date(d.ts * 1000).toLocaleTimeString());
+  chart.data.datasets[0].data.push(d.co2); chart.data.datasets[1].data.push(THRESHOLD);
+  if (chart.data.labels.length > MAX_POINTS) { chart.data.labels.shift(); chart.data.datasets.forEach(ds => ds.data.shift()); }
+  chart.update();
+}
+const dash = mqtt.connect(BROKER, { clientId: "dashboard-" + Math.random().toString(16).slice(2, 8), reconnectPeriod: 2000, connectTimeout: 10000 });
+dash.on("connect", () => {
+  $("connDot").className = "dot on"; $("connText").textContent = "Connected to broker"; $("btn").disabled = false;
+  dash.subscribe(T_SENS); log("Connected to " + BROKER); log("Waiting for sensor data…");
+});
+dash.on("reconnect", () => { $("connText").textContent = "Reconnecting…"; });
+dash.on("offline", () => { $("connDot").className = "dot off"; $("connText").textContent = "Offline"; $("btn").disabled = true; });
+dash.on("error", e => log("Error: " + e.message, "warn"));
+dash.on("message", (topic, payload) => {
+  try { const d = JSON.parse(payload.toString()); if (first) { log("First reading received from the sensor"); first = false; } render(d); }
+  catch (e) { log("Invalid message: " + payload, "warn"); }
+});
+function sendCommand() {
+  if ($("btn").disabled) return;
+  const cmd = ventilating ? "stop" : "ventilate";
+  dash.publish(T_CMD, cmd); log("Command sent to the sensor: " + cmd.toUpperCase(), "cmd");
+}
+$("btn").addEventListener("click", sendCommand);
+document.addEventListener("keydown", e => {
+  if (e.key === "v" || e.key === "V") sendCommand();
+  if (e.key === "f" || e.key === "F") { if (!document.fullscreenElement) document.documentElement.requestFullscreen(); else document.exitFullscreen(); }
+});
+</script>
+</body>
+</html>
