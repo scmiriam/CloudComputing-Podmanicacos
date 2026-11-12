@@ -16,7 +16,7 @@
 ## 3. Plataforms and technologies (Persona 3) 
 
 ## 4.  Use Cases and Demo (Miriam)
-- Overview: [[00_MOC - Use Cases]] - one real case per research area (manufacturing, healthcare, smart cities)
+- Overview: one real case per research area (manufacturing, healthcare, smart cities)
 - Use cases: [[01_Manufacturing - BMW Group Virtual Factory]], [[02_Healthcare - Living Heart Project and Cardiac Digital Twins]] and [[03_Smart City - Virtual Singapore]]
 - Demo: [[Demo - Gemelo digital del aula]] - simulated classroom sensor, cloud MQTT broker and dashboard with a command back to the sensor
 
