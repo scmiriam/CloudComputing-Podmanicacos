@@ -18,6 +18,7 @@ tags:
 - **Linked Notes:**
   - [[Digital Twin vs. Digital Thread]]
   - [[Key Components of a Digital Twin]]
+  - [[Classification Dimensions of Digital Twins]]
 
 ## Source Summary
 An authoritative technical framework published in December 2021 by the Digital Twin Consortium (DTC)—an open standards program of the Object Management Group (OMG)—codifying the systemic requirements for interoperability, lifecycle data integration, and the functional relationship between the **Digital Twin** and the **Digital Thread**:
