@@ -11,7 +11,7 @@
 - [[Draft Space Technology Roadmap Modeling, Simulation, Information Technology & Processing Roadmap]]
 - [[Digital Twin and Digital Thread A Unified Architectural Approach]]
 - [[Digital Twin in manufacturing A categorical literature review and classification]]
-## 2. Levels and Types (Persona 2)
+## 2. Levels and Types (Pau)
 - Overview: [[Classification Dimensions of Digital Twins]] - map of all classification axes (levels vs. types)
 - Levels: [[Maturity Levels (Arup and Madni Frameworks)]] and [[Levels of Autonomy (Roles and Automation)]]
 - Types: [[Hierarchical Types (Component, Asset, System, Process)]], [[Lifecycle Types (Prototype, Instance, Aggregate)]] and [[Functional Types (Product, Production, Performance)]]
@@ -41,7 +41,7 @@
 - [[IDTA - AAS Specification Part 1 Metamodel]]
 
 ## 4.  Use Cases and Demo (Miriam)
-- Overview: [[00_MOC - Use Cases]] - one real case per research area (manufacturing, healthcare, smart cities)
+- Overview: one real case per research area (manufacturing, healthcare, smart cities)
 - Use cases: [[01_Manufacturing - BMW Group Virtual Factory]], [[02_Healthcare - Living Heart Project and Cardiac Digital Twins]] and [[03_Smart City - Virtual Singapore]]
 - Demo: [[Demo - Gemelo digital del aula]] - simulated classroom sensor, cloud MQTT broker and dashboard with a command back to the sensor
 
@@ -56,4 +56,17 @@
 - [[Digital twins - Batty]]
 - [[City Digital Twin Potentials A Review and Research Agenda]]
 
-## 5. Challenges, tendencies and future (Persona 5)
+## 5. Challenges, tendencies and future (Victor)
+- Overview: [[Challenges and Future Landscape of Digital Twins]] - problem-to-trend map connecting technical, modeling and socio-technical barriers to future directions
+- Challenges: [[Technical, Cloud and Security Challenges]] and [[Interoperability, Modeling and Socio-Technical Challenges]]
+- Tendencies and future: [[Hybrid AI-Physics and Reduced-Order Modeling]], [[Open Standards, Cloud-Native and Edge-Cloud Continuum]] and [[Autonomous and Federated Ecosystems (Twin of Twins)]]
+
+ ### **Sources and references**
+- [[Digital Twin Values, Challenges and Enablers From a Modeling Perspective]]
+- [[Digital Twin A Comprehensive Survey of Security Threats]]
+- [[Digital Twin Enabling Technologies, Challenges and Open Research]]
+- [[The Digital Twin to enable the vision of precision cardiology]]
+- [[City Digital Twin Potentials A Review and Research Agenda]]
+- [[Digital Twin and Digital Thread A Unified Architectural Approach]]
+- [[Arup - Digital Twin Towards a Meaningful Framework]]
+- [[Digital Twin Where do humans fit in]]

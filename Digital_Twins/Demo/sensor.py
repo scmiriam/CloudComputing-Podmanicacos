@@ -1,17 +1,17 @@
 """
-Sensor simulado del gemelo digital de un aula (demo del seminario).
+Simulated sensor for a classroom digital twin (seminar demo).
 
-Publica cada 2 s las lecturas de CO2, temperatura y humedad en un broker
-MQTT público y escucha comandos de vuelta desde el dashboard:
-  - "ventilar": abre la ventilación, el CO2 empieza a bajar
-  - "parar":    cierra la ventilación, el CO2 vuelve a subir
+Publishes CO2, temperature and humidity readings every 2 s to a public
+MQTT broker and listens for commands coming back from the dashboard:
+  - "ventilate": opens the ventilation, CO2 starts dropping
+  - "stop":      closes the ventilation, CO2 starts rising again
 
-Uso:
+Usage:
     pip install paho-mqtt
     python sensor.py
 
-Opciones (todas opcionales):
-    python sensor.py --topic otro-topic-unico/aula1 --intervalo 1
+Options (all optional):
+    python sensor.py --topic another-unique-topic/classroom1 --interval 1
 """
 
 import argparse
@@ -23,86 +23,86 @@ import time
 try:
     import paho.mqtt.client as mqtt
 except ImportError:
-    sys.exit("Falta la librería paho-mqtt. Instálala con:  pip install paho-mqtt")
+    sys.exit("The paho-mqtt library is missing. Install it with:  pip install paho-mqtt")
 
-# Broker público de HiveMQ por WebSockets seguros (puerto 8884).
-# Es el mismo que usa el dashboard, así que si uno conecta, el otro también.
-# Reserva si se cae: --broker test.mosquitto.org --puerto 8081
+# HiveMQ public broker over secure WebSockets (port 8884).
+# It is the same one the dashboard uses, so if one connects, so does the other.
+# Backup if it goes down: --broker test.mosquitto.org --port 8081
 BROKER = "broker.hivemq.com"
-PUERTO = 8884
-TOPIC = "uji-ccdt-podmanicacos/aula1"
+PORT = 8884
+TOPIC = "uji-ccdt-podmanicacos/classroom1"
 
-parser = argparse.ArgumentParser(description="Sensor simulado del aula")
+parser = argparse.ArgumentParser(description="Simulated classroom sensor")
 parser.add_argument("--broker", default=BROKER)
-parser.add_argument("--puerto", type=int, default=PUERTO)
-parser.add_argument("--topic", default=TOPIC, help="prefijo de topic, debe ser único")
-parser.add_argument("--intervalo", type=float, default=2.0, help="segundos entre lecturas")
-parser.add_argument("--sin-tls", action="store_true", help="WebSockets sin cifrar (p. ej. un broker local)")
+parser.add_argument("--port", type=int, default=PORT)
+parser.add_argument("--topic", default=TOPIC, help="topic prefix, must be unique")
+parser.add_argument("--interval", type=float, default=2.0, help="seconds between readings")
+parser.add_argument("--no-tls", action="store_true", help="unencrypted WebSockets (e.g. a local broker)")
 args = parser.parse_args()
 
-TOPIC_SENSORES = f"{args.topic}/sensores"
-TOPIC_COMANDOS = f"{args.topic}/comandos"
+TOPIC_SENSORS = f"{args.topic}/sensors"
+TOPIC_COMMANDS = f"{args.topic}/commands"
 
-# Estado físico simulado del aula
-estado = {"co2": 650.0, "temp": 21.5, "hum": 45.0, "ventilando": False}
+# Simulated physical state of the classroom
+state = {"co2": 650.0, "temp": 21.5, "hum": 45.0, "ventilating": False}
 
 
 def on_connect(client, userdata, flags, reason_code, properties=None):
     if str(reason_code) in ("0", "Success"):
-        print(f"Conectado a {args.broker}:{args.puerto}")
-        client.subscribe(TOPIC_COMANDOS)
-        print(f"Publicando en  {TOPIC_SENSORES}")
-        print(f"Escuchando en  {TOPIC_COMANDOS}\n")
+        print(f"Connected to {args.broker}:{args.port}")
+        client.subscribe(TOPIC_COMMANDS)
+        print(f"Publishing on  {TOPIC_SENSORS}")
+        print(f"Listening on   {TOPIC_COMMANDS}\n")
     else:
-        print(f"Error al conectar: {reason_code}")
+        print(f"Connection error: {reason_code}")
 
 
 def on_message(client, userdata, msg):
-    comando = msg.payload.decode().strip().lower()
-    if comando == "ventilar":
-        estado["ventilando"] = True
-        print(">>> Comando recibido: VENTILAR (abriendo ventilación)")
-    elif comando == "parar":
-        estado["ventilando"] = False
-        print(">>> Comando recibido: PARAR (cerrando ventilación)")
+    command = msg.payload.decode().strip().lower()
+    if command == "ventilate":
+        state["ventilating"] = True
+        print(">>> Command received: VENTILATE (opening ventilation)")
+    elif command == "stop":
+        state["ventilating"] = False
+        print(">>> Command received: STOP (closing ventilation)")
     else:
-        print(f">>> Comando desconocido: {comando!r}")
+        print(f">>> Unknown command: {command!r}")
 
 
-def simular_paso():
-    """Avanza la simulación un paso y devuelve la lectura."""
-    if estado["ventilando"]:
-        # Entra aire de fuera: baja el CO2, refresca un poco y baja la humedad
-        estado["co2"] -= random.uniform(25, 45)
-        estado["temp"] -= random.uniform(0.02, 0.08)
-        estado["hum"] -= random.uniform(0.1, 0.3)
+def simulate_step():
+    """Advances the simulation one step and returns the reading."""
+    if state["ventilating"]:
+        # Outside air comes in: CO2 drops, it cools down a bit and humidity drops
+        state["co2"] -= random.uniform(25, 45)
+        state["temp"] -= random.uniform(0.02, 0.08)
+        state["hum"] -= random.uniform(0.1, 0.3)
     else:
-        # Aula llena con la ventilación cerrada
-        estado["co2"] += random.uniform(10, 30)
-        estado["temp"] += random.uniform(0.0, 0.05)
-        estado["hum"] += random.uniform(0.0, 0.15)
+        # Full classroom with the ventilation closed
+        state["co2"] += random.uniform(10, 30)
+        state["temp"] += random.uniform(0.0, 0.05)
+        state["hum"] += random.uniform(0.0, 0.15)
 
-    estado["co2"] = max(420.0, min(estado["co2"], 2500.0))
-    estado["temp"] = max(18.0, min(estado["temp"], 28.0))
-    estado["hum"] = max(30.0, min(estado["hum"], 70.0))
+    state["co2"] = max(420.0, min(state["co2"], 2500.0))
+    state["temp"] = max(18.0, min(state["temp"], 28.0))
+    state["hum"] = max(30.0, min(state["hum"], 70.0))
 
     return {
-        "co2": round(estado["co2"]),
-        "temp": round(estado["temp"] + random.uniform(-0.1, 0.1), 1),
-        "hum": round(estado["hum"] + random.uniform(-0.3, 0.3), 1),
-        "ventilando": estado["ventilando"],
+        "co2": round(state["co2"]),
+        "temp": round(state["temp"] + random.uniform(-0.1, 0.1), 1),
+        "hum": round(state["hum"] + random.uniform(-0.3, 0.3), 1),
+        "ventilating": state["ventilating"],
         "ts": time.time(),
     }
 
 
-def crear_cliente():
-    client_id = f"sensor-aula-{random.randint(1000, 9999)}"
+def create_client():
+    client_id = f"classroom-sensor-{random.randint(1000, 9999)}"
     try:  # paho-mqtt 2.x
         client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2, client_id=client_id, transport="websockets")
     except AttributeError:  # paho-mqtt 1.x
         client = mqtt.Client(client_id=client_id, transport="websockets")
     client.ws_set_options(path="/mqtt")
-    if not args.sin_tls:
+    if not args.no_tls:
         client.tls_set()
     client.on_connect = on_connect
     client.on_message = on_message
@@ -110,20 +110,20 @@ def crear_cliente():
 
 
 def main():
-    client = crear_cliente()
-    print(f"Conectando a {args.broker}:{args.puerto} ...")
-    client.connect(args.broker, args.puerto, keepalive=30)
+    client = create_client()
+    print(f"Connecting to {args.broker}:{args.port} ...")
+    client.connect(args.broker, args.port, keepalive=30)
     client.loop_start()
     try:
         while True:
-            lectura = simular_paso()
-            client.publish(TOPIC_SENSORES, json.dumps(lectura))
-            vent = "ON " if lectura["ventilando"] else "OFF"
-            print(f"CO2 {lectura['co2']:>5} ppm | {lectura['temp']:>4} °C | "
-                  f"{lectura['hum']:>4} % | ventilación {vent}")
-            time.sleep(args.intervalo)
+            reading = simulate_step()
+            client.publish(TOPIC_SENSORS, json.dumps(reading))
+            vent = "ON " if reading["ventilating"] else "OFF"
+            print(f"CO2 {reading['co2']:>5} ppm | {reading['temp']:>4} °C | "
+                  f"{reading['hum']:>4} % | ventilation {vent}")
+            time.sleep(args.interval)
     except KeyboardInterrupt:
-        print("\nSensor detenido.")
+        print("\nSensor stopped.")
     finally:
         client.loop_stop()
         client.disconnect()

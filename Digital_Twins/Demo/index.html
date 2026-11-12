@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Gemelo digital · Aula UJI</title>
+<title>Digital twin · UJI Classroom</title>
 <script src="https://cdn.jsdelivr.net/npm/mqtt@5.10.1/dist/mqtt.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.js"></script>
 <style>
@@ -62,13 +62,13 @@
 <div class="wrap">
   <header>
     <div>
-      <h1>Gemelo digital · Aula 1 UJI</h1>
-      <div class="sub">Sensor simulado → broker MQTT en la nube → este dashboard → comando de vuelta</div>
+      <h1>Digital twin · UJI Classroom 1</h1>
+      <div class="sub">Simulated sensor → cloud MQTT broker → this dashboard → command back</div>
     </div>
-    <div class="pill"><span id="connDot" class="dot"></span><span id="connText">Conectando…</span></div>
+    <div class="pill"><span id="connDot" class="dot"></span><span id="connText">Connecting…</span></div>
   </header>
 
-  <div id="alert" class="alert">⚠ CO₂ por encima de 1000 ppm: calidad del aire mala. Hay que ventilar.</div>
+  <div id="alert" class="alert">⚠ CO₂ above 1000 ppm: poor air quality. Ventilation needed.</div>
 
   <section class="grid">
     <div class="card">
@@ -77,46 +77,46 @@
       <div class="bar"><div id="co2Bar"></div></div>
     </div>
     <div class="card">
-      <div class="label">Temperatura</div>
+      <div class="label">Temperature</div>
       <div class="value"><span id="temp">--</span><span class="unit">°C</span></div>
     </div>
     <div class="card">
-      <div class="label">Humedad</div>
+      <div class="label">Humidity</div>
       <div class="value"><span id="hum">--</span><span class="unit">%</span></div>
     </div>
     <div class="card control">
       <div>
-        <div class="label">Ventilación (estado real del sensor)</div>
+        <div class="label">Ventilation (actual sensor state)</div>
         <div class="value" id="ventState" style="font-size:24px">--</div>
       </div>
-      <button id="btn" disabled>Ventilar</button>
+      <button id="btn" disabled>Ventilate</button>
     </div>
   </section>
 
   <section class="charts">
     <div class="card">
-      <h2>CO₂ en tiempo real</h2>
+      <h2>Real-time CO₂</h2>
       <div class="chartbox"><canvas id="chartCo2"></canvas></div>
     </div>
     <div class="card">
-      <h2>Registro de eventos</h2>
+      <h2>Event log</h2>
       <ul id="log"></ul>
     </div>
   </section>
 
   <footer>
     Broker: <code id="brokerTxt"></code> · Topic: <code id="topicTxt"></code> ·
-    Última lectura: <span id="last">—</span>
+    Last reading: <span id="last">—</span>
   </footer>
 </div>
 
 <script>
-  // Configuración (se puede cambiar con ?broker=...&topic=... en la URL)
+  // Configuration (can be changed with ?broker=...&topic=... in the URL)
   const params = new URLSearchParams(location.search);
   const BROKER = params.get("broker") || "wss://broker.hivemq.com:8884/mqtt";
-  const TOPIC = params.get("topic") || "uji-ccdt-podmanicacos/aula1";
-  const T_SENS = TOPIC + "/sensores", T_CMD = TOPIC + "/comandos";
-  const UMBRAL = 1000, MAX_PUNTOS = 60;
+  const TOPIC = params.get("topic") || "uji-ccdt-podmanicacos/classroom1";
+  const T_SENS = TOPIC + "/sensors", T_CMD = TOPIC + "/commands";
+  const THRESHOLD = 1000, MAX_POINTS = 60;
 
   const $ = id => document.getElementById(id);
   $("brokerTxt").textContent = BROKER;
@@ -130,14 +130,14 @@
     while ($("log").children.length > 80) $("log").lastChild.remove();
   }
 
-  // Gráfica
+  // Chart
   const css = getComputedStyle(document.documentElement);
   const chart = new Chart($("chartCo2"), {
     type: "line",
     data: { labels: [], datasets: [
       { label: "CO₂ (ppm)", data: [], borderColor: "#2f6fde", backgroundColor: "rgba(47,111,222,.12)",
         fill: true, tension: .3, pointRadius: 0, borderWidth: 2 },
-      { label: "Umbral 1000 ppm", data: [], borderColor: "#d64545", borderDash: [6, 6],
+      { label: "1000 ppm threshold", data: [], borderColor: "#d64545", borderDash: [6, 6],
         pointRadius: 0, borderWidth: 1.5, fill: false }
     ]},
     options: {
@@ -151,37 +151,37 @@
     }
   });
 
-  // Estado
-  let ventilando = false, alertaActiva = false;
+  // State
+  let ventilating = false, alertActive = false;
 
-  function pintar(d) {
+  function render(d) {
     $("co2").textContent = d.co2;
     $("temp").textContent = d.temp.toFixed(1);
     $("hum").textContent = d.hum.toFixed(1);
     $("last").textContent = new Date(d.ts * 1000).toLocaleTimeString();
 
     const pct = Math.min(100, (d.co2 - 400) / (1500 - 400) * 100);
-    const color = d.co2 > UMBRAL ? "var(--bad)" : d.co2 > 800 ? "var(--warn)" : "var(--good)";
+    const color = d.co2 > THRESHOLD ? "var(--bad)" : d.co2 > 800 ? "var(--warn)" : "var(--good)";
     $("co2Bar").style.width = pct + "%";
     $("co2Bar").style.background = color;
     $("co2").style.color = color;
 
-    if (d.co2 > UMBRAL && !alertaActiva) { alertaActiva = true; log("ALERTA: CO₂ " + d.co2 + " ppm", "warn"); }
-    if (d.co2 <= UMBRAL && alertaActiva) { alertaActiva = false; log("CO₂ de nuevo bajo el umbral"); }
-    $("alert").classList.toggle("show", alertaActiva);
+    if (d.co2 > THRESHOLD && !alertActive) { alertActive = true; log("ALERT: CO₂ " + d.co2 + " ppm", "warn"); }
+    if (d.co2 <= THRESHOLD && alertActive) { alertActive = false; log("CO₂ back below the threshold"); }
+    $("alert").classList.toggle("show", alertActive);
 
-    if (d.ventilando !== ventilando) log("Sensor confirma ventilación " + (d.ventilando ? "ABIERTA" : "CERRADA"));
-    ventilando = !!d.ventilando;
-    $("ventState").textContent = ventilando ? "Abierta" : "Cerrada";
-    $("ventState").style.color = ventilando ? "var(--good)" : "var(--quiet)";
-    $("btn").textContent = ventilando ? "Parar ventilación" : "Ventilar";
-    $("btn").classList.toggle("stop", ventilando);
+    if (d.ventilating !== ventilating) log("Sensor confirms ventilation " + (d.ventilating ? "OPEN" : "CLOSED"));
+    ventilating = !!d.ventilating;
+    $("ventState").textContent = ventilating ? "Open" : "Closed";
+    $("ventState").style.color = ventilating ? "var(--good)" : "var(--quiet)";
+    $("btn").textContent = ventilating ? "Stop ventilation" : "Ventilate";
+    $("btn").classList.toggle("stop", ventilating);
 
     const t = new Date(d.ts * 1000).toLocaleTimeString();
     chart.data.labels.push(t);
     chart.data.datasets[0].data.push(d.co2);
-    chart.data.datasets[1].data.push(UMBRAL);
-    if (chart.data.labels.length > MAX_PUNTOS) {
+    chart.data.datasets[1].data.push(THRESHOLD);
+    if (chart.data.labels.length > MAX_POINTS) {
       chart.data.labels.shift(); chart.data.datasets.forEach(ds => ds.data.shift());
     }
     chart.update();
@@ -195,31 +195,31 @@
 
   client.on("connect", () => {
     $("connDot").className = "dot on";
-    $("connText").textContent = "Conectado al broker";
+    $("connText").textContent = "Connected to broker";
     $("btn").disabled = false;
     client.subscribe(T_SENS);
-    log("Conectado a " + BROKER);
-    log("Esperando datos del sensor…");
+    log("Connected to " + BROKER);
+    log("Waiting for sensor data…");
   });
-  client.on("reconnect", () => { $("connText").textContent = "Reconectando…"; });
+  client.on("reconnect", () => { $("connText").textContent = "Reconnecting…"; });
   client.on("offline", () => {
-    $("connDot").className = "dot off"; $("connText").textContent = "Sin conexión"; $("btn").disabled = true;
+    $("connDot").className = "dot off"; $("connText").textContent = "Offline"; $("btn").disabled = true;
   });
   client.on("error", e => log("Error: " + e.message, "warn"));
 
-  let primero = true;
+  let first = true;
   client.on("message", (topic, payload) => {
     try {
       const d = JSON.parse(payload.toString());
-      if (primero) { log("Primer dato recibido del sensor"); primero = false; }
-      pintar(d);
-    } catch (e) { log("Mensaje no válido: " + payload, "warn"); }
+      if (first) { log("First reading received from the sensor"); first = false; }
+      render(d);
+    } catch (e) { log("Invalid message: " + payload, "warn"); }
   });
 
   $("btn").addEventListener("click", () => {
-    const cmd = ventilando ? "parar" : "ventilar";
+    const cmd = ventilating ? "stop" : "ventilate";
     client.publish(T_CMD, cmd);
-    log("Comando enviado al sensor: " + cmd.toUpperCase(), "cmd");
+    log("Command sent to the sensor: " + cmd.toUpperCase(), "cmd");
   });
 </script>
 </body>
