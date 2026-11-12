@@ -13,6 +13,7 @@ tags:
   - smart-city
   - urban-modelling
   - editorial
+  - sec-usecases
 ---
 
 # [Source] - Digital twins
@@ -25,9 +26,6 @@ tags:
 - **Key Points (from the abstract):**
   - Short editorial (4 pages) by a leading urban modelling researcher.
   - Discusses how digital twins of cities differ from traditional urban models.
-- **Linked Notes:**
-  - [[03_Smart City - Virtual Singapore]]
-  - [[00_MOC - Use Cases]]
 
 ## Source Summary
 1. **Note:** No abstract is available in Crossref, Semantic Scholar or OpenAlex, so this summary only covers the article's scope. Read the full text before quoting it.

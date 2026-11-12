@@ -13,6 +13,7 @@ tags:
   - healthcare
   - cardiology
   - simulation
+  - sec-usecases
 ---
 
 # [Source] - The Living Heart Project A robust and integrative simulator for human heart function
@@ -27,9 +28,6 @@ tags:
   - Couples electrical excitation and mechanical contraction in a single finite element environment.
   - Shows electrical potential and mechanical deformation across the cardiac cycle; the pressure-volume relationship agrees well with clinical observations.
   - Intended to guide device design and treatment planning for stenosis, regurgitation or prolapse of the four heart valves.
-- **Linked Notes:**
-  - [[02_Healthcare - Living Heart Project and Cardiac Digital Twins]]
-  - [[00_MOC - Use Cases]]
 
 ## Source Summary
 1. **Contribution:** A realistic, validated whole-heart model, the basis of Dassault Systèmes' Living Heart Project.

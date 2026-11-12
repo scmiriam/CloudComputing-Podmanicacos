@@ -125,9 +125,3 @@ How the [[Demo - Gemelo digital del aula]] (CO₂/temperature/humidity sensor + 
 | Sensor data in | IoT Hub → Azure Function → twin update | IoT SiteWise → connector | MQTT connection (same broker as the demo) | Extension that reads MQTT |
 | "Ventilate" command | Function → IoT Hub cloud-to-device message | Not native | Desired property / live message | Not native |
 | Dashboard | Power BI / custom web | Grafana | Our `index.html` | 3D view |
-
-## Linked notes
-- [[Key Components of a Digital Twin]] · [[Bidirectional Data Loop (Closed-Loop Feedback)]]
-- [[Hierarchical Types (Component, Asset, System, Process)]] (scope that each platform covers)
-- [[ISO 23247-1 Digital twin framework for manufacturing]] (framework that does not prescribe formats; these standards fill the gap)
-- [[Guion - Platforms and Technologies]] (3–5 minute presentation script for this section)

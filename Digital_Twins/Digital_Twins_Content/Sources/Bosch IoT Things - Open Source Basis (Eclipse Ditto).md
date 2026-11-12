@@ -12,6 +12,7 @@ tags:
   - platforms
   - open-source
   - eclipse
+  - sec-platforms
 ---
 
 # [Source] - Bosch IoT Things: Open Source Basis | Bosch IoT Suite
@@ -25,8 +26,6 @@ tags:
   - Bosch IoT Things is "based on and powered by" the open-source project Eclipse Ditto, and runs in several cloud environments.
   - Other public adopters: Aloxy (industrial monitoring, mostly on-premise) and Othermo (energy platform).
   - Eclipse IoT WG (2024): 8 public adopters (1 in 2018, 6 in 2022); most contributions now come from outside Bosch.
-- **Linked Notes:**
-  - [[Eclipse Ditto]]
 
 ## Source Summary
 1. **Model:** open-core. The same technology is offered free (self-hosted) and as a managed commercial service.

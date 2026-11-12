@@ -13,6 +13,9 @@ tags:
   - autonomy
   - human-in-the-loop
   - academia
+  - sec-levels
+  - sec-challenges
+  - sec-shared
 ---
 
 # [Source] - Digital Twin: Where do humans fit in? (Agrawal et al., 2023)
@@ -22,9 +25,6 @@ tags:
 - **Focus:** Which roles a digital twin can play in a work system and how far each role can be automated
 - **Key Quote:**
   - *"A particular DT can play any number of roles at varying levels."*
-- **Linked Notes:**
-  - [[Levels of Autonomy (Roles and Automation)]]
-  - [[Classification Dimensions of Digital Twins]]
 
 ## Source Summary
 A peer-reviewed paper that proposes the two-dimensional **Levels of Digital Twin (LoDT)** framework:

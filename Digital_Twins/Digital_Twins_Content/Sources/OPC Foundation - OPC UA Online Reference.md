@@ -11,6 +11,7 @@ tags:
   - digital-twins
   - standards
   - opc-ua
+  - sec-platforms
 ---
 
 # [Source] - OPC UA Online Reference (OPC 10000 / IEC 62541) | OPC Foundation
@@ -23,8 +24,6 @@ tags:
 - **Key Points:**
   - The 1.05 specification is published in batches of parts; not every part is at 1.05.07.
   - 1.03 certification support ends at the end of 2026.
-- **Linked Notes:**
-  - [[OPC UA]]
 
 ## Source Summary
 1. **Structure:** OPC 10000-1…-100 (concepts, security, address space, services, mappings, PubSub, devices...).

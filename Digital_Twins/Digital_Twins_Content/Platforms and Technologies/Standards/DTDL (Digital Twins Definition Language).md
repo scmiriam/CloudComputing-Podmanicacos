@@ -71,7 +71,3 @@ It uses v3 because that is what Azure Digital Twins accepts. With v4, only the `
 | Focus | Cloud twin graph | Industrial asset over its lifecycle | Web interface of a device |
 | Body | Vendor (Microsoft) | IDTA / IEC | W3C |
 | Format | JSON-LD | JSON / XML / RDF / AASX | JSON-LD |
-
-## Linked notes
-- [[Digital Twin Platforms and Standards - Comparative Audit (2026)]]
-- [[Asset Administration Shell (AAS)]] (industrial alternative with ISO/IEC status)

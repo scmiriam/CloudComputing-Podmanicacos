@@ -12,6 +12,7 @@ tags:
   - standards
   - iso
   - manufacturing
+  - sec-levels
 ---
 
 # [Source] - ISO 23247-1:2021 Automation systems and integration — Digital twin framework for manufacturing — Part 1: Overview and general principles
@@ -21,10 +22,6 @@ tags:
 - **Focus:** Terms, definitions, principles and requirements for digital twins in manufacturing
 - **Key Quote:**
   - *"monitors its observable manufacturing element by constantly updating relevant operational and environmental data"*
-- **Linked Notes:**
-  - [[Hierarchical Types (Component, Asset, System, Process)]]
-  - [[Functional Types (Product, Production, Performance)]]
-  - [[Classification Dimensions of Digital Twins]]
 
 ## Source Summary
 The first part of a four-part international standard series that defines a framework for creating digital twins of manufacturing elements:

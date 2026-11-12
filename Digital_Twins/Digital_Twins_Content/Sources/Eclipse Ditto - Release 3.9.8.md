@@ -13,6 +13,7 @@ tags:
   - open-source
   - eclipse
   - security
+  - sec-platforms
 ---
 
 # [Source] - Release notes 3.9.8 | Eclipse Ditto
@@ -25,9 +26,6 @@ tags:
   - Fixes CVE-2026-107503, a session-takeover vulnerability in the Ditto UI and Swagger UI OIDC integration under the conditions described in the advisory.
   - Fixes MQTT messages lost immediately after a connection was (re)established.
   - Updates vulnerable dependencies; the release adds no new user-facing API features compared with 3.9.7.
-- **Linked Notes:**
-  - [[Eclipse Ditto]]
-  - [[Digital Twin Platforms and Standards - Comparative Audit (2026)]]
 
 ## Source Summary
 This patch is both a security update and a useful operational signal: self-hosting requires a process for tracking advisories and upgrading. The official notes list affected versions, severity, mitigations and the recommended update.

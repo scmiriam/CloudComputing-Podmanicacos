@@ -83,8 +83,3 @@ Ditto is software you operate: deploy its microservices, MongoDB and connectivit
 - No 3D visualization or built-in analytics, so it needs external tools (Grafana, Omniverse...).
 - Small community compared to the hyperscalers, and no commercial support SLA by default.
 - No graph query over relationships like [[Azure Digital Twins]]; relationships must be modeled with attributes.
-
-## Linked notes
-- [[Digital Twin Platforms and Standards - Comparative Audit (2026)]]
-- [[Key Components of a Digital Twin]]
-- [[Levels of Autonomy (Roles and Automation)]] (desired properties make automated control possible)

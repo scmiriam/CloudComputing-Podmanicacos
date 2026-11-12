@@ -54,7 +54,3 @@ Summaries: [[Singapore Land Authority - Virtual Singapore]] · [[Digital twins -
 - Singapore Land Authority. (n.d.). *Virtual Singapore*. Retrieved November 10, 2026, from https://www.sla.gov.sg/geospatial/gw/virtual-singapore
 - Batty, M. (2018). Digital twins. *Environment and Planning B: Urban Analytics and City Science*, 45(5), 817–820. https://doi.org/10.1177/2399808318796416
 - Shahat, E., Hyun, C. T., & Yeom, C. (2021). City Digital Twin Potentials: A Review and Research Agenda. *Sustainability*, 13(6), 3386. https://doi.org/10.3390/su13063386
-
-## Linked notes
-- [[Demo - Gemelo digital del aula]]
-- [[00_MOC - Use Cases]]

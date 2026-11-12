@@ -13,6 +13,7 @@ tags:
   - review
   - industry
   - manufacturing
+  - sec-usecases
 ---
 
 # [Source] - Digital Twin in Industry State-of-the-Art
@@ -27,9 +28,6 @@ tags:
   - Main application areas: product design, production, and prognostics and health management (PHM).
   - Claims to be the first review focused specifically on digital twin applications in industry.
   - Closes with current challenges and future research directions.
-- **Linked Notes:**
-  - [[01_Manufacturing - BMW Group Virtual Factory]]
-  - [[00_MOC - Use Cases]]
 
 ## Source Summary
 1. **Type:** Highly cited review (over 3,700 citations on Semantic Scholar, November 2026).

@@ -13,6 +13,9 @@ tags:
   - maturity
   - built-environment
   - arup
+  - sec-levels
+  - sec-challenges
+  - sec-shared
 ---
 
 # [Source] - Digital Twin: Towards a Meaningful Framework | Arup
@@ -22,11 +25,6 @@ tags:
 - **Focus:** Definitions, an evaluation framework for twin sophistication, and value across cities, energy, property, transport and water
 - **Key Quote:**
   - *"the combination of a computational model and a real-world system"* (from Arup's definition of a digital twin)
-- **Linked Notes:**
-  - [[Maturity Levels (Arup and Madni Frameworks)]]
-  - [[Levels of Autonomy (Roles and Automation)]]
-  - [[Classification Dimensions of Digital Twins]]
-  - [[Hierarchical Types (Component, Asset, System, Process)]]
 
 ## Source Summary
 An industry report whose stated goal is to align terminology around digital twins and offer a working framework for categorizing how sophisticated a given twin is:

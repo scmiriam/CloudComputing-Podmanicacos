@@ -12,6 +12,7 @@ tags:
   - standards
   - aas
   - regulation
+  - sec-platforms
 ---
 
 # [Source] - Guideline: Digital Battery Passport with the Asset Administration Shell | IDTA & Catena-X
@@ -21,8 +22,6 @@ tags:
 - **URL:** https://industrialdigitaltwin.org/en/wp-content/uploads/sites/2/2026/02/IDTA_Catena-X_Guideline_Digital_Battery_Passport.pdf
 - **Also:** IDTA, *AAS ready for EU DPP* (2026): https://industrialdigitaltwin.org/wp-content/uploads/2026/07/IDTA_AAS-ready-for-EU-DPP.pdf
 - **Focus:** Using the AAS to comply with the EU Battery Regulation
-- **Linked Notes:**
-  - [[Asset Administration Shell (AAS)]]
 
 ## Source Summary
 1. **Content:** seven AAS submodel templates that cover the data points of the EU Battery Regulation, aligned with DIN DKE SPEC 99100.

@@ -14,6 +14,9 @@ tags:
   - enabling-technologies
   - challenges
   - iot
+  - sec-usecases
+  - sec-challenges
+  - sec-shared
 ---
 
 # [Source] - Digital Twin Enabling Technologies, Challenges and Open Research
@@ -28,14 +31,6 @@ tags:
   - Groups recent publications into three research areas: manufacturing, healthcare and smart cities.
   - Assesses enabling technologies, challenges and open research directions.
   - Describes a digital twin as the seamless integration of data between a physical and a virtual machine in either direction.
-- **Linked Notes:**
-  - [[01_Manufacturing - BMW Group Virtual Factory]]
-  - [[02_Healthcare - Living Heart Project and Cardiac Digital Twins]]
-  - [[03_Smart City - Virtual Singapore]]
-  - [[00_MOC - Use Cases]]
-  - [[Challenges and Future Landscape of Digital Twins]]
-  - [[Technical, Cloud and Security Challenges]]
-  - [[Interoperability, Modeling and Socio-Technical Challenges]]
 
 ## Source Summary
 1. **Type:** Cross-sector review (over 2,200 citations on Semantic Scholar, November 2026).

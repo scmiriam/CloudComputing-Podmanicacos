@@ -11,6 +11,7 @@ tags:
   - digital-twins
   - standards
   - dtdl
+  - sec-platforms
 ---
 
 # [Source] - Digital Twins Definition Language (DTDL) Version 4
@@ -22,8 +23,6 @@ tags:
 - **Key Quotes:**
   - *"a language for describing digital twin models of smart devices, assets, spaces, and environments."*
   - *"For DTDL version 4, the appropriate context specifier is 'dtmi:dtdl:context;4'."*
-- **Linked Notes:**
-  - [[DTDL (Digital Twins Definition Language)]]
 
 ## Source Summary
 1. **Elements:** Interface, Property, Telemetry, Command, Relationship, Component.

@@ -60,8 +60,3 @@ Our [[Demo - Gemelo digital del aula]] uses plain MQTT with JSON. In a real fact
 - **Complex**: hundreds of pages of specification, steep learning curve.
 - High resource usage on small devices compared to plain MQTT.
 - Covers the machine, but not the full lifecycle of the asset (that is what AAS does).
-
-## Linked notes
-- [[Digital Twin Platforms and Standards - Comparative Audit (2026)]]
-- [[Asset Administration Shell (AAS)]] (complementary: AAS can be exposed through OPC UA)
-- [[Bidirectional Data Loop (Closed-Loop Feedback)]]

@@ -73,9 +73,3 @@ SiteWise, Kinesis Video, S3, Lambda and Grafana are billed separately.
 - Only basic 3D (web glTF), no physics simulation.
 - Strategic risk because AWS is cutting back its IoT portfolio.
 - AWS says it is not intended for critical or hazardous systems.
-
-## Linked notes
-- [[Digital Twin Platforms and Standards - Comparative Audit (2026)]]
-- [[Azure Digital Twins]] (direct competitor)
-- [[Key Components of a Digital Twin]]
-- [[Maturity Levels (Arup and Madni Frameworks)]] (without native control, it stays at monitoring/descriptive levels unless extended)

@@ -12,6 +12,7 @@ tags:
   - simulation
   - aerospace
   - roadmap
+  - sec-fundaments
 ---
 
 # [Source] - Draft Space Technology Roadmap: Modeling, Simulation, Information Technology & Processing (TA11) | NASA
@@ -24,9 +25,6 @@ tags:
   - *"The Digital Twin is ultra-realistic and may consider one or more of the vehicle's systems (e.g., thermal protection, structural, propulsion, avionics, life support)."*
   - *"In addition to mirroring the life of its twin, the Digital Twin will continuously forecast the health of the vehicle/system, the remaining useful life, and the probability of mission success."*
   - *"The Digital Twin will also adapt to operational changes through self-learning and act as a decision support system during anomalous flight events."*
-- **Linked Notes:**
-  - [[What is a Digital Twin]]
-  - [[History and Origin (Michael Grieves and NASA)]]
 
 ## Source Summary
 A foundational roadmap document in which NASA formally introduced and defined the term **Digital Twin** for aerospace applications (Technology Area 11: Modeling, Simulation, Information Technology & Processing). Key takeaways include:

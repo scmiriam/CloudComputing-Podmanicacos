@@ -13,6 +13,7 @@ tags:
   - manufacturing
   - omniverse
   - bmw
+  - sec-usecases
 ---
 
 # [Source] - BMW Group Starts Global Rollout of NVIDIA Omniverse | NVIDIA
@@ -25,9 +26,6 @@ tags:
   - BMW Group opened its "first entirely virtual factory, powered by NVIDIA Omniverse".
   - The planned EV plant in Debrecen, Hungary, "will only start operations in 2025."
   - "Starting to work in the virtual factory two years before it opens enables the BMW Group to ensure smooth operation and optimal efficiency."
-- **Linked Notes:**
-  - [[01_Manufacturing - BMW Group Virtual Factory]]
-  - [[00_MOC - Use Cases]]
 
 ## Source Summary
 1. **Announcement:** BMW's virtual factory presented in an NVIDIA GTC keynote demo.

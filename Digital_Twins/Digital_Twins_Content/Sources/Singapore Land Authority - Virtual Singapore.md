@@ -13,6 +13,7 @@ tags:
   - smart-city
   - singapore
   - government
+  - sec-usecases
 ---
 
 # [Source] - Virtual Singapore | Singapore Land Authority
@@ -25,9 +26,6 @@ tags:
   - "Virtual Singapore is a 3D digital replica of Singapore built on topographical as well as real-time, dynamic data."
   - It is meant to be "the country's authoritative platform that can be used in simulations and virtual tests of new solutions to urban planning problems."
   - Described as a "Critical enabler to enhance various government initiatives for building a Smart Nation."
-- **Linked Notes:**
-  - [[03_Smart City - Virtual Singapore]]
-  - [[00_MOC - Use Cases]]
 
 ## Source Summary
 1. **Programme:** National 3D city twin co-led by the National Research Foundation, the Singapore Land Authority and the Government Technology Agency.

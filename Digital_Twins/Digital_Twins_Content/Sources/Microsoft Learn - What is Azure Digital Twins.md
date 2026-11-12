@@ -12,6 +12,7 @@ tags:
   - digital-twins
   - platforms
   - azure
+  - sec-platforms
 ---
 
 # [Source] - What is Azure Digital Twins? | Microsoft Learn
@@ -23,9 +24,6 @@ tags:
 - **Key Quotes:**
   - *"Azure Digital Twins is a platform as a service (PaaS) offering that enables the creation of twin graphs based on digital models of entire environments"*
   - *"Azure Digital Twins is different from digital twin builder (preview) in Fabric and the device twins used by IoT Hub."*
-- **Linked Notes:**
-  - [[Azure Digital Twins]]
-  - [[DTDL (Digital Twins Definition Language)]]
 
 ## Source Summary
 1. **Models:** defined in DTDL (v3 recommended), with public industry ontologies.

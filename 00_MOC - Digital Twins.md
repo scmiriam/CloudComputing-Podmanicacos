@@ -26,7 +26,6 @@
 
 ## 3. Plataforms and technologies (Juan Carlos)
 - Overview: [[Digital Twin Platforms and Standards - Comparative Audit (2026)]] - expanded audit (12 Nov 2026) and comparative tables
-- Presentation: [[Guion - Platforms and Technologies]] - Spanish oral script, approx. 4–5 minutes
 - Platforms: [[Azure Digital Twins]], [[AWS IoT TwinMaker]], [[NVIDIA Omniverse]] and [[Eclipse Ditto]] (open source)
 - Standards: [[DTDL (Digital Twins Definition Language)]], [[OPC UA]] and [[Asset Administration Shell (AAS)]]
 

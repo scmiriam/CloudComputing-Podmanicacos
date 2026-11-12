@@ -12,6 +12,7 @@ tags:
   - platforms
   - aws
   - pricing
+  - sec-platforms
 ---
 
 # [Source] - AWS IoT TwinMaker Pricing | AWS
@@ -24,8 +25,6 @@ tags:
   - **Basic:** per million data API calls; no knowledge graph.
   - **Standard** (recommended for new customers): $0.05 per entity/month, $1.50 per million API calls, $0.50 per 10,000 queries.
   - **Tiered bundle:** fixed monthly price per entity tier with a 3-month commitment; Tier 1 (1-1,000 entities) $220/month, Tier 2 (1,001-5,000) $650/month (values from the page's examples).
-- **Linked Notes:**
-  - [[AWS IoT TwinMaker]]
 
 ## Source Summary
 1. **Model:** mix of per-entity and per-use pricing, or fixed tiers.

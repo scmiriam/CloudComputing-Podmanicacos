@@ -14,6 +14,7 @@ tags:
   - hybrid-modeling
   - reduced-order-modeling
   - ai
+  - sec-challenges
 ---
 
 # [Source] - Digital Twin: Values, Challenges and Enablers From a Modeling Perspective (Rasheed et al., 2020)
@@ -23,10 +24,6 @@ tags:
 - **Focus:** Survey of digital twin values, computational/modeling challenges, and enabling methodologies
 - **Key Quote:**
   - *"A digital twin is defined as a virtual representation of a physical asset enabled through data and simulators for real-time prediction, optimization, monitoring, controlling, and improved decision making."*
-- **Linked Notes:**
-  - [[Challenges and Future Landscape of Digital Twins]]
-  - [[Interoperability, Modeling and Socio-Technical Challenges]]
-  - [[Hybrid AI-Physics and Reduced-Order Modeling]]
 
 ## Source Summary
 A widely cited open-access review examining why high-fidelity simulations struggle to operate in real time and how hybrid modeling and reduced-order techniques resolve this bottleneck:

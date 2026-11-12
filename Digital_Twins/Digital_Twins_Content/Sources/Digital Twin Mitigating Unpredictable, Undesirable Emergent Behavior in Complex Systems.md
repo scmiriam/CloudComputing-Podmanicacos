@@ -11,6 +11,7 @@ tags:
   - product-lifecycle-management
   - systems-engineering
   - foundations
+  - sec-fundaments
 ---
 
 # [Source] - Digital Twin: Mitigating Unpredictable, Undesirable Emergent Behavior in Complex Systems
@@ -23,14 +24,6 @@ tags:
   - *"At its optimum, any information that could be obtained from inspecting a physical manufactured product can be obtained from its Digital Twin."*
   - *"Complex systems have emergent properties that cannot be predicted by analyzing the individual components in isolation; the Digital Twin serves to surface and eliminate undesirable emergent behavior before physical execution."*
   - *"The Digital Twin paradigm consists of three distinct parts: the physical product in Real Space, the virtual product in Virtual Space, and the bidirectional data connections that tie the two spaces together."*
-- **Linked Notes:**
-  - [[What is a Digital Twin]]
-  - [[History and Origin (Michael Grieves and NASA)]]
-  - [[Key Components of a Digital Twin]]
-  - [[Bidirectional Data Loop (Closed-Loop Feedback)]]
-  - [[Lifecycle Types (Prototype, Instance, Aggregate)]]
-  - [[Hierarchical Types (Component, Asset, System, Process)]]
-  - [[Classification Dimensions of Digital Twins]]
 
 ## Source Summary
 A seminal conceptual text expanding Michael Grieves's original 2002–2003 PLM premise into a comprehensive theoretical framework for managing complex physical systems:

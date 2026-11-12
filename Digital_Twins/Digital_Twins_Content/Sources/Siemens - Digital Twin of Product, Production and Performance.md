@@ -14,6 +14,7 @@ tags:
   - siemens
   - industry4-0
   - manufacturing
+  - sec-levels
 ---
 
 # [Source] - The Digital Twin: Product, Production and Performance | Siemens
@@ -23,10 +24,6 @@ tags:
 - **Focus:** Functional classification of twins along the industrial value chain
 - **Key Quote:**
   - *"constantly fed with operational data from products or the production plant"* (Siemens, on the performance twin)
-- **Linked Notes:**
-  - [[Functional Types (Product, Production, Performance)]]
-  - [[Lifecycle Types (Prototype, Instance, Aggregate)]]
-  - [[Classification Dimensions of Digital Twins]]
 
 ## Source Summary
 Siemens' industrial framing of the digital twin as three connected, function-specific twins, complemented by an independent analyst's commentary:

@@ -13,6 +13,7 @@ tags:
   - mbse
   - maturity
   - academia
+  - sec-levels
 ---
 
 # [Source] - Leveraging Digital Twin Technology in Model-Based Systems Engineering (Madni et al., 2019)
@@ -22,10 +23,6 @@ tags:
 - **Focus:** Role of digital twins in MBSE; a four-level maturity ladder
 - **Key Quote:**
   - *"virtual instance of a physical system (twin) that is continually updated"* (from the paper's definition of a digital twin)
-- **Linked Notes:**
-  - [[Maturity Levels (Arup and Madni Frameworks)]]
-  - [[Lifecycle Types (Prototype, Instance, Aggregate)]]
-  - [[Classification Dimensions of Digital Twins]]
 
 ## Source Summary
 An academic paper that positions the digital twin within Model-Based Systems Engineering and proposes a ladder of increasing twin capability:

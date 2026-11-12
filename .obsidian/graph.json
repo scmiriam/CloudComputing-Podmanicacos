@@ -1,12 +1,104 @@
 {
-  "collapse-filter": true,
+  "collapse-filter": false,
   "search": "",
   "showTags": false,
   "showAttachments": false,
   "hideUnresolved": false,
-  "showOrphans": true,
-  "collapse-color-groups": true,
-  "colorGroups": [],
+  "showOrphans": false,
+  "collapse-color-groups": false,
+  "colorGroups": [
+    {
+      "query": "file:\"00_MOC - Digital Twins\"",
+      "color": {
+        "a": 1,
+        "rgb": 16742912
+      }
+    },
+    {
+      "query": "path:Sources tag:#sec-shared",
+      "color": {
+        "a": 1,
+        "rgb": 7895160
+      }
+    },
+    {
+      "query": "path:Sources tag:#sec-fundaments",
+      "color": {
+        "a": 1,
+        "rgb": 16522525
+      }
+    },
+    {
+      "query": "path:Sources tag:#sec-levels",
+      "color": {
+        "a": 1,
+        "rgb": 11531290
+      }
+    },
+    {
+      "query": "path:Sources tag:#sec-platforms",
+      "color": {
+        "a": 1,
+        "rgb": 1731306
+      }
+    },
+    {
+      "query": "path:Sources tag:#sec-usecases",
+      "color": {
+        "a": 1,
+        "rgb": 9245936
+      }
+    },
+    {
+      "query": "path:Sources tag:#sec-challenges",
+      "color": {
+        "a": 1,
+        "rgb": 16036906
+      }
+    },
+    {
+      "query": "path:\"Digital_Twins/Digital_Twins_Content/Definition and Fundaments\"",
+      "color": {
+        "a": 1,
+        "rgb": 14701138
+      }
+    },
+    {
+      "query": "path:\"Digital_Twins/Digital_Twins_Content/Levels and Types\"",
+      "color": {
+        "a": 1,
+        "rgb": 11657298
+      }
+    },
+    {
+      "query": "path:\"Digital_Twins/Digital_Twins_Content/Platforms and Technologies\"",
+      "color": {
+        "a": 1,
+        "rgb": 5408992
+      }
+    },
+    {
+      "query": "path:\"Digital_Twins/Digital_Twins_Content/Use Cases\"",
+      "color": {
+        "a": 1,
+        "rgb": 10506976
+      }
+    },
+    {
+      "query": "path:\"Digital_Twins/Digital_Twins_Content/Challenges, Tendencies and Future\"",
+      "color": {
+        "a": 1,
+        "rgb": 14725458
+      }
+    },
+    {
+      "query": "path:\"Digital_Twins/Demo\"",
+      "color": {
+        "a": 1,
+        "rgb": 10506976
+      }
+    }
+  ],
   "collapse-display": true,
   "showArrow": false,
   "textFadeMultiplier": 0,
@@ -17,6 +109,6 @@
   "repelStrength": 10,
   "linkStrength": 1,
   "linkDistance": 250,
-  "scale": 1,
-  "close": true
+  "scale": 0.9999999999999947,
+  "close": false
 }

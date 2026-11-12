@@ -13,6 +13,7 @@ tags:
   - nvidia
   - omniverse
   - pricing
+  - sec-platforms
 ---
 
 # [Source] - NVIDIA Omniverse Enterprise | NVIDIA
@@ -24,8 +25,6 @@ tags:
 - **Focus:** Licensing and price
 - **Key Quotes:**
   - *"The NVIDIA Omniverse Enterprise software subscription is $4,500 per GPU per year."*
-- **Linked Notes:**
-  - [[NVIDIA Omniverse]]
 
 ## Source Summary
 1. **Licensing:** changed from "per named user" to **per GPU**. Multi-year and perpetual options exist.

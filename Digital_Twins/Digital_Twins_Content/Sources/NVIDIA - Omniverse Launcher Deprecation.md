@@ -12,6 +12,7 @@ tags:
   - platforms
   - nvidia
   - omniverse
+  - sec-platforms
 ---
 
 # [Source] - NVIDIA Omniverse: What Developers Need to Know About Migration Away from Launcher | NVIDIA Developer
@@ -24,8 +25,6 @@ tags:
 - **Key Quotes:**
   - *"NVIDIA deprecated the Omniverse Launcher on October 1st, 2025."*
   - Omniverse itself "is not going away".
-- **Linked Notes:**
-  - [[NVIDIA Omniverse]]
 
 ## Source Summary
 1. **Deprecated:** Launcher, Exchange app installs, Nucleus Workstation (replaced by Hub Workstation Cache; Enterprise Nucleus Server is still available through NGC).

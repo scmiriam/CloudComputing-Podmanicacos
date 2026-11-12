@@ -12,6 +12,7 @@ tags:
   - platforms
   - nvidia
   - omniverse
+  - sec-platforms
 ---
 
 # [Source] - NVIDIA Releases Vera Rubin DSX AI Factory Reference Design and Omniverse DSX Digital Twin Blueprint | NVIDIA Newsroom
@@ -24,8 +25,6 @@ tags:
 - **Key Quotes:**
   - The blueprint enables "physically accurate AI factory digital twins for large-scale design, buildout and operations."
   - "once the physical AI factory comes online, the digital twin can be used as an operating system to monitor, inspect and further optimize processes."
-- **Linked Notes:**
-  - [[NVIDIA Omniverse]]
 
 ## Source Summary
 1. **Purpose:** thermal and electrical simulation of AI data centers before construction, and operation afterwards.

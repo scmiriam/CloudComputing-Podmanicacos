@@ -13,6 +13,7 @@ tags:
   - manufacturing
   - industry4-0
   - shop-floor
+  - sec-usecases
 ---
 
 # [Source] - Digital Twin Shop-Floor A New Shop-Floor Paradigm Towards Smart Manufacturing
@@ -27,9 +28,6 @@ tags:
   - Identifies the convergence of physical and virtual worlds at shop-floor level as a key challenge.
   - Proposes the Digital Twin Shop-Floor (DTS) with four components: physical shop-floor, virtual shop-floor, shop-floor service system and shop-floor digital twin data.
   - Studies the DTS operation mechanisms and implementation methods, and surveys key technologies and open challenges.
-- **Linked Notes:**
-  - [[01_Manufacturing - BMW Group Virtual Factory]]
-  - [[00_MOC - Use Cases]]
 
 ## Source Summary
 1. **Framework:** A four-component reference model for a factory-level digital twin.

@@ -58,9 +58,3 @@ These types roughly follow the idea of increasing autonomy in [[Levels of Autono
 - Adoption is mostly **European and industrial**; little support in the hyperscalers' native services.
 - Complex metamodel. Templates are still growing, and versions change often (3.0 → 3.1 → 3.2).
 - It describes the asset, but it does not include real-time communication or simulation (it relies on OPC UA, MQTT, etc.).
-
-## Linked notes
-- [[Digital Twin Platforms and Standards - Comparative Audit (2026)]]
-- [[OPC UA]] · [[DTDL (Digital Twins Definition Language)]]
-- [[ISO 23247-1 Digital twin framework for manufacturing]]
-- [[Lifecycle Types (Prototype, Instance, Aggregate)]]

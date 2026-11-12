@@ -12,6 +12,7 @@ tags:
   - platforms
   - open-source
   - eclipse
+  - sec-platforms
 ---
 
 # [Source] - Announcing Eclipse Ditto Release 3.9.0 | Eclipse Ditto
@@ -23,8 +24,6 @@ tags:
 - **Focus:** Release notes
 - **Key Quotes:**
   - *"The focus of this release is on policies, multi-tenancy and reuse."*
-- **Linked Notes:**
-  - [[Eclipse Ditto]]
 
 ## Source Summary
 1. **Policies:** namespace-scoped entries, namespace root policies, imports, resolved view.

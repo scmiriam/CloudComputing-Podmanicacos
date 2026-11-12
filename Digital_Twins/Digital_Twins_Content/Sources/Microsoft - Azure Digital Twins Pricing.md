@@ -12,6 +12,7 @@ tags:
   - platforms
   - azure
   - pricing
+  - sec-platforms
 ---
 
 # [Source] - Azure Digital Twins Pricing | Microsoft Azure
@@ -24,8 +25,6 @@ tags:
   - Three meters: **operations**, **messages** and **query units**, each priced per million.
   - Operations are metered in 1 KB steps of the response body; messages in 1 KB steps of the payload routed to Event Grid, Event Hubs or Service Bus.
   - Query cost appears as `query-charge` in each Query API response.
-- **Linked Notes:**
-  - [[Azure Digital Twins]]
 
 ## Source Summary
 1. **Model:** pure pay per use, with no fixed fee per twin.

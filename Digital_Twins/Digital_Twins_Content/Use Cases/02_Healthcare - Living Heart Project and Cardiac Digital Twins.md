@@ -48,7 +48,3 @@ Summaries: [[The Living Heart Project A robust and integrative simulator for hum
 
 - Baillargeon, B., Rebelo, N., Fox, D. D., Taylor, R. L., & Kuhl, E. (2014). The Living Heart Project: A robust and integrative simulator for human heart function. *European Journal of Mechanics - A/Solids*, 48, 38–47. https://doi.org/10.1016/j.euromechsol.2014.04.001
 - Corral-Acero, J., Margara, F., Marciniak, M., Rodero, C., Loncaric, F., Feng, Y., ... Lamata, P. (2020). The 'Digital Twin' to enable the vision of precision cardiology. *European Heart Journal*, 41(48), 4556–4564. https://doi.org/10.1093/eurheartj/ehaa159
-
-## Linked notes
-- [[Differences (Digital Twin vs. Simulation vs. 3D Model)]]
-- [[00_MOC - Use Cases]]

@@ -13,6 +13,9 @@ tags:
   - healthcare
   - precision-medicine
   - cardiology
+  - sec-usecases
+  - sec-challenges
+  - sec-shared
 ---
 
 # [Source] - The Digital Twin to enable the vision of precision cardiology
@@ -27,9 +30,6 @@ tags:
   - Reviews the first steps of digital twins in cardiovascular medicine.
   - Discusses challenges and opportunities ahead.
   - Stresses the synergy between mechanistic (physics-based) and statistical (data-driven) models.
-- **Linked Notes:**
-  - [[02_Healthcare - Living Heart Project and Cardiac Digital Twins]]
-  - [[00_MOC - Use Cases]]
 
 ## Source Summary
 1. **Type:** Position paper in a top cardiology journal (over 800 citations on Semantic Scholar, November 2026).

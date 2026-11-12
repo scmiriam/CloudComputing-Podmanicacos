@@ -12,6 +12,7 @@ tags:
   - standards
   - aas
   - industry4-0
+  - sec-platforms
 ---
 
 # [Source] - Specification of the Asset Administration Shell, Part 1: Metamodel (IDTA-01001-3-2)
@@ -21,8 +22,6 @@ tags:
 - **URL:** https://industrialdigitaltwin.org/wp-content/uploads/2026/07/IDTA-01001-3-2_AAS-Specification_Part1_Metamodel.pdf
 - **Also:** Part 2 API v3.2.0 (IDTA-01002-3-2); IEC 63278-4:2026 *Applications of Asset Administration Shell*; IDTA, *AAS ready for EU DPP* (2026)
 - **Focus:** Metamodel of the industrial digital twin
-- **Linked Notes:**
-  - [[Asset Administration Shell (AAS)]]
 
 ## Source Summary
 1. **Metamodel:** AAS, asset information, submodels, submodel elements, semantic IDs.

@@ -15,6 +15,7 @@ tags:
   - cloud
   - edge
   - iiot
+  - sec-challenges
 ---
 
 # [Source] - Digital Twin: A Comprehensive Survey of Security Threats (Alcaraz & Lopez, 2022)
@@ -24,10 +25,6 @@ tags:
 - **Focus:** Threat taxonomy, attack surfaces, and defense mechanisms across the architectural layers of digital twins
 - **Key Quote:**
   - *"Because a digital twin maintains a continuous bidirectional connection with its physical counterpart, a compromise in the virtual space can directly propagate to the physical infrastructure, and vice versa."*
-- **Linked Notes:**
-  - [[Challenges and Future Landscape of Digital Twins]]
-  - [[Technical, Cloud and Security Challenges]]
-  - [[Open Standards, Cloud-Native and Edge-Cloud Continuum]]
 
 ## Source Summary
 A comprehensive cybersecurity survey analyzing how the convergence of IIoT, Edge/Cloud virtualization, and bidirectional closed-loop control creates unique security risks for digital twin deployments:

@@ -12,6 +12,7 @@ tags:
   - platforms
   - azure
   - fabric
+  - sec-platforms
 ---
 
 # [Source] - What Is Digital Twin Builder (Preview)? | Microsoft Fabric
@@ -23,8 +24,6 @@ tags:
 - **Key Quotes:**
   - *"Digital twin builder (preview) is an item in the Real-Time Intelligence workload in Microsoft Fabric."*
   - *"Digital twin builder (preview) in Fabric is different from the Azure Digital Twins service."*
-- **Linked Notes:**
-  - [[Azure Digital Twins]]
 
 ## Source Summary
 1. **Approach:** low-code/no-code ontology modeling, mapping and contextualization of IT/OT data.

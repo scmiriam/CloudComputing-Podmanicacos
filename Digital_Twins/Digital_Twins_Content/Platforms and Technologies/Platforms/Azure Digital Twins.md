@@ -82,9 +82,3 @@ Exact prices vary by region and must be checked with the Azure pricing calculato
 - Uncertain long-term roadmap while Fabric becomes the main focus.
 - Only supports DTDL v2/v3, even though DTDL v4 exists.
 - A complete solution needs several paid services, so the total cost is hard to estimate.
-
-## Linked notes
-- [[Digital Twin Platforms and Standards - Comparative Audit (2026)]]
-- [[AWS IoT TwinMaker]] (direct competitor)
-- [[03_Smart City - Virtual Singapore]] (the kind of space-level twin that ADT targets)
-- [[Hierarchical Types (Component, Asset, System, Process)]] (the twin graph naturally represents this hierarchy)

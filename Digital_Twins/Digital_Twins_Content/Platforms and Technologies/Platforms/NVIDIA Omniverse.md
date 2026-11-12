@@ -73,8 +73,3 @@ Omniverse gives the **"what if"** (simulation) and the visualization. The **"wha
 - Steep learning curve. Since the Launcher was removed, it is aimed at developers, not end users.
 - Does not manage IoT state, devices or bidirectional control on its own. It needs a backend ([[Azure Digital Twins]], [[Eclipse Ditto]], etc.).
 - Frequent product changes (apps deprecated in 2025) make it hard to rely on a specific tool.
-
-## Linked notes
-- [[Digital Twin Platforms and Standards - Comparative Audit (2026)]]
-- [[Differences (Digital Twin vs. Simulation vs. 3D Model)]] (Omniverse alone is a simulation unless it is connected to live data)
-- [[Lifecycle Types (Prototype, Instance, Aggregate)]] (BMW's factory is a twin *prototype* built before the physical plant)

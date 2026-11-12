@@ -51,8 +51,3 @@ Summaries: [[NVIDIA - BMW Group Starts Global Rollout of NVIDIA Omniverse]] · [
 - NVIDIA (Geyer, M.). (2023, March 21). *BMW Group Starts Global Rollout of NVIDIA Omniverse*. NVIDIA Blog. https://blogs.nvidia.com/blog/bmw-group-nvidia-omniverse/
 - Tao, F., & Zhang, M. (2017). Digital Twin Shop-Floor: A New Shop-Floor Paradigm Towards Smart Manufacturing. *IEEE Access*, 5, 20418–20427. https://doi.org/10.1109/ACCESS.2017.2756069
 - Tao, F., Zhang, H., Liu, A., & Nee, A. Y. C. (2019). Digital Twin in Industry: State-of-the-Art. *IEEE Transactions on Industrial Informatics*, 15(4), 2405–2415. https://doi.org/10.1109/TII.2018.2873186
-
-## Linked notes
-- [[Digital Twin in manufacturing A categorical literature review and classification]]
-- [[Key Components of a Digital Twin]]
-- [[00_MOC - Use Cases]]

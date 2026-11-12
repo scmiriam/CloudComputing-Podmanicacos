@@ -11,6 +11,7 @@ tags:
   - digital-twins
   - ibm
   - industry4-0
+  - sec-fundaments
 ---
 
 # [Source] - What Is a Digital Twin? | IBM
@@ -23,13 +24,6 @@ tags:
   - *"A key feature is real-time, two-way data exchange between the object and its virtual replica, helping ensure that simulated conditions accurately reflect the physical world."*
   - *"While digital twins mirror a real-life object and its specific traits, simulations often exist entirely in the virtual world without an immediate connection to real-world systems."*
   - *"Digital threads are ideal for gaining a holistic view of the organization's interlocking systems, while digital twins are better suited for fine-tuning individual assets and processes."*
-- **Linked Notes:** 
-  - [[What is a Digital Twin]]
-  - [[Differences (Digital Twin vs. Simulation vs. 3D Model)]]
-  - [[Digital Twin vs. Digital Thread]]
-  - [[Key Components of a Digital Twin]]
-  - [[Hierarchical Types (Component, Asset, System, Process)]]
-  - [[Classification Dimensions of Digital Twins]]
 
 ## Source Summary
 A reference explainer published by IBM Think detailing digital twin technology across key dimensions:

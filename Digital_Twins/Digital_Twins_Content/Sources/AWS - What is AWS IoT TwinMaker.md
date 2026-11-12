@@ -12,6 +12,7 @@ tags:
   - digital-twins
   - platforms
   - aws
+  - sec-platforms
 ---
 
 # [Source] - What is AWS IoT TwinMaker? | AWS Documentation
@@ -24,8 +25,6 @@ tags:
   - *"AWS IoT TwinMaker is an AWS IoT service that you can use to build operational digital twins of physical and digital systems."*
   - *"The knowledge graph and connectors together provide a single interface for querying data in disparate locations."*
   - *"AWS IoT TwinMaker is not intended for use in, or in association with, the operation of any hazardous environments or critical systems"*
-- **Linked Notes:**
-  - [[AWS IoT TwinMaker]]
 
 ## Source Summary
 1. **Concepts:** workspace (S3 + IAM), entity-component model, scenes (glTF/GLB), tags.

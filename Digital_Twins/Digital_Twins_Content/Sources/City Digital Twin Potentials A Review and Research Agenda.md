@@ -12,6 +12,9 @@ tags:
   - use-cases
   - smart-city
   - review
+  - sec-usecases
+  - sec-challenges
+  - sec-shared
 ---
 
 # [Source] - City Digital Twin Potentials A Review and Research Agenda
@@ -25,9 +28,6 @@ tags:
   - Reviews the current and prospective potentials and challenges of city digital twins.
   - Proposes a research agenda towards a complete, fully mirrored city digital twin.
   - Future directions: more efficient data processing, inclusion of socio-economic components, and tighter integration between the physical city and its twin.
-- **Linked Notes:**
-  - [[03_Smart City - Virtual Singapore]]
-  - [[00_MOC - Use Cases]]
 
 ## Source Summary
 1. **Type:** Open-access review (over 370 citations on Semantic Scholar, November 2026).

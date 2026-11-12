@@ -10,6 +10,7 @@ tags:
   - digital-twins
   - classification
   - academia
+  - sec-fundaments
 ---
 
 # [Source] - Digital Twin in Manufacturing: A Categorical Literature Review (Kritzinger et al., 2018)
@@ -21,13 +22,6 @@ tags:
   - *"If there is no automated data exchange between the physical and digital object, it is a Digital Model."*
   - *"A Digital Shadow has an automated one-way data flow from the physical to the digital object."*
   - *"A Digital Twin requires a fully integrated, bidirectional, and automated data exchange between the physical and digital objects."*
-- **Linked Notes:**
-  - [[Differences (Digital Twin vs. Simulation vs. 3D Model)]]
-  - [[Bidirectional Data Loop (Closed-Loop Feedback)]]
-  - [[Key Components of a Digital Twin]]
-  - [[Classification Dimensions of Digital Twins]]
-  - [[Maturity Levels (Arup and Madni Frameworks)]]
-  - [[Levels of Autonomy (Roles and Automation)]]
   
 ## Source Summary
 A landmark academic review paper that resolved widespread ambiguity in Industry 4.0 literature by establishing the canonical **data integration taxonomy** separating digital models, digital shadows, and digital twins:
