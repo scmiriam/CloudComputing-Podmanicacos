@@ -1,64 +1,64 @@
 ---
 tags: [demo, digital-twin, mqtt]
 ---
-# Demo: gemelo digital del aula
+# Demo: classroom digital twin
 
-Un sensor simulado de un aula envía CO₂, temperatura y humedad a un broker MQTT en la nube. Un dashboard web muestra los datos en directo y puede enviar el comando **Ventilar** de vuelta al sensor. Ese canal de vuelta es lo que lo convierte en un **gemelo digital** y no en una simple sombra digital (ver [[Bidirectional Data Loop (Closed-Loop Feedback)]]).
+A simulated classroom sensor sends CO₂, temperature and humidity to a cloud MQTT broker. A web dashboard shows the data live and can send the **Ventilate** command back to the sensor. That return channel is what makes it a **digital twin** rather than just a digital shadow (see [[Bidirectional Data Loop (Closed-Loop Feedback)]]).
 
-Coste: cero. Todo es open source o gratuito y no hace falta crear cuentas.
+Cost: zero. Everything is open source or free, and no accounts are needed.
 
-## Arquitectura
+## Architecture
 
 ```
-[sensor.py] --datos cada 2 s--> [Broker MQTT público] --datos--> [index.html]
-     ^                          broker.hivemq.com                     |
-     +------------------- comando "ventilar" / "parar" ---------------+
+[sensor.py] --data every 2 s--> [Public MQTT broker] --data--> [index.html]
+     ^                          broker.hivemq.com                    |
+     +------------------- "ventilate" / "stop" command --------------+
 ```
 
-| Pieza | Archivo / servicio | Tecnología |
+| Component | File / service | Technology |
 |---|---|---|
-| Sensor simulado | `sensor.py` | Python + paho-mqtt |
-| Broker en la nube | `broker.hivemq.com` (WebSockets seguros, puerto 8884) | MQTT público, sin registro |
-| Dashboard | `index.html` | mqtt.js + Chart.js, en el navegador |
+| Simulated sensor | `sensor.py` | Python + paho-mqtt |
+| Cloud broker | `broker.hivemq.com` (secure WebSockets, port 8884) | Public MQTT, no sign-up |
+| Dashboard | `index.html` | mqtt.js + Chart.js, in the browser |
 
 Topics:
-- `uji-ccdt-podmanicacos/aula1/sensores`: lecturas en JSON (`co2`, `temp`, `hum`, `ventilando`, `ts`)
-- `uji-ccdt-podmanicacos/aula1/comandos`: `ventilar` o `parar`
+- `uji-ccdt-podmanicacos/classroom1/sensors`: JSON readings (`co2`, `temp`, `hum`, `ventilating`, `ts`)
+- `uji-ccdt-podmanicacos/classroom1/commands`: `ventilate` or `stop`
 
-## Cómo ejecutarla
+## How to run it
 
-1. Instalar Python 3 y la librería (solo la primera vez):
+1. Install Python 3 and the library (first time only):
    ```
    pip install paho-mqtt
    ```
-2. Abrir una terminal en esta carpeta y arrancar el sensor:
+2. Open a terminal in this folder and start the sensor:
    ```
    python sensor.py
    ```
-   Debe aparecer `Conectado a broker.hivemq.com:8884` y una línea por lectura.
-3. Abrir `index.html` con doble clic en el explorador de archivos (o desde GitHub Pages). El indicador de arriba a la derecha debe ponerse en verde y los datos empiezan a llegar.
+   You should see `Connected to broker.hivemq.com:8884` and one line per reading.
+3. Open `index.html` by double-clicking it in the file explorer (or from GitHub Pages). The indicator in the top right should turn green and data starts arriving.
 
-Para abrirlo desde el móvil o desde otros ordenadores, publicad `index.html` en GitHub Pages. No hace falta tocar nada: el dashboard se conecta al broker desde cualquier sitio.
+To open it from a phone or other computers, publish `index.html` on GitHub Pages. Nothing needs to change: the dashboard connects to the broker from anywhere.
 
-## Guion de la demo (unos 3 minutos)
+## Demo script (about 3 minutes)
 
-1. Arrancar el sensor y enseñar la terminal: "esto es el aula física".
-2. Enseñar el dashboard: "esto es su gemelo en la nube". Los datos llegan cada 2 segundos.
-3. El CO₂ sube (aula llena, ventanas cerradas). Al pasar de 1000 ppm, salta la alerta roja (unos 30–40 s desde el arranque).
-4. Pulsar **Ventilar**: la terminal muestra `Comando recibido: VENTILAR` y el CO₂ baja en directo.
-5. Idea de cierre: si ese botón lo pulsara una regla automática o un modelo de IA, el gemelo pasaría de descriptivo a **prescriptivo**.
+1. Start the sensor and show the terminal: "this is the physical classroom".
+2. Show the dashboard: "this is its twin in the cloud". Data arrives every 2 seconds.
+3. CO₂ rises (full classroom, windows closed). Once it passes 1000 ppm, the red alert fires (about 30–40 s after startup).
+4. Press **Ventilate**: the terminal shows `Command received: VENTILATE` and CO₂ drops live.
+5. Closing idea: if that button were pressed by an automatic rule or an AI model, the twin would go from descriptive to **prescriptive**.
 
-## Si algo falla
+## Troubleshooting
 
-- **El dashboard no conecta**: la wifi del aula puede bloquear el puerto 8884. Probad con el hotspot del móvil.
-- **El broker de HiveMQ está caído**: usad el de reserva en los dos lados.
-  - Sensor: `python sensor.py --broker test.mosquitto.org --puerto 8081`
-  - Dashboard: abrir `index.html?broker=wss://test.mosquitto.org:8081/mqtt`
-- **Datos de otro grupo mezclados**: cambiad el topic en los dos lados.
-  - Sensor: `python sensor.py --topic otro-nombre-unico/aula1`
-  - Dashboard: `index.html?topic=otro-nombre-unico/aula1`
-- Plan C: tened grabado un vídeo de la demo funcionando.
+- **The dashboard doesn't connect**: the classroom Wi-Fi may block port 8884. Try a phone hotspot.
+- **The HiveMQ broker is down**: use the backup broker on both sides.
+  - Sensor: `python sensor.py --broker test.mosquitto.org --port 8081`
+  - Dashboard: open `index.html?broker=wss://test.mosquitto.org:8081/mqtt`
+- **Another group's data mixed in**: change the topic on both sides.
+  - Sensor: `python sensor.py --topic another-unique-name/classroom1`
+  - Dashboard: `index.html?topic=another-unique-name/classroom1`
+- Plan C: have a recorded video of the demo working.
 
-## Seguridad (para el bloque de retos)
+## Security (for the challenges section)
 
-El broker es público: cualquiera que conozca el topic puede leer los datos o enviar comandos. Vale para una demo, pero en un sistema real haría falta autenticación, TLS con certificados por dispositivo y control de acceso por topic, como hacen AWS IoT Core o Azure IoT Hub.
+The broker is public: anyone who knows the topic can read the data or send commands. That is fine for a demo, but a real system would need authentication, TLS with per-device certificates and per-topic access control, as AWS IoT Core or Azure IoT Hub provide.
