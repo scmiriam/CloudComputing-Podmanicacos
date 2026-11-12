@@ -24,7 +24,21 @@
 - [[Siemens - Digital Twin of Product, Production and Performance]]
 
 
-## 3. Plataforms and technologies (Persona 3) 
+## 3. Plataforms and technologies (Juan Carlos)
+- Overview: [[Digital Twin Platforms and Standards - Comparative Audit (2026)]] - status audit (Nov 2026) and comparative tables
+- Platforms: [[Azure Digital Twins]], [[AWS IoT TwinMaker]], [[NVIDIA Omniverse]] and [[Eclipse Ditto]] (open source)
+- Standards: [[DTDL (Digital Twins Definition Language)]], [[OPC UA]] and [[Asset Administration Shell (AAS)]]
+
+ ### **Sources and references**
+- [[Microsoft Learn - What is Azure Digital Twins]]
+- [[Microsoft Learn - Digital twin builder in Microsoft Fabric]]
+- [[AWS - What is AWS IoT TwinMaker]]
+- [[NVIDIA - Omniverse Launcher Deprecation]]
+- [[NVIDIA - Omniverse DSX Blueprint]]
+- [[Eclipse Ditto - Release 3.9.0]]
+- [[DTDL v4 Specification]]
+- [[OPC Foundation - OPC UA Online Reference]]
+- [[IDTA - AAS Specification Part 1 Metamodel]]
 
 ## 4.  Use Cases and Demo (Miriam)
 - Overview: [[00_MOC - Use Cases]] - one real case per research area (manufacturing, healthcare, smart cities)
