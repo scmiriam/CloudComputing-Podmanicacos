@@ -1,7 +1,7 @@
 ---
 type: concept_note
 topic: Overview
-audit_date: 2026-11-11
+audit_date: 2026-11-12
 sources:
   - "[[Microsoft Learn - What is Azure Digital Twins]]"
   - "[[Microsoft Learn - Digital twin builder in Microsoft Fabric]]"
@@ -12,6 +12,7 @@ sources:
   - "[[NVIDIA - Omniverse DSX Blueprint]]"
   - "[[NVIDIA - Omniverse Enterprise]]"
   - "[[Eclipse Ditto - Release 3.9.0]]"
+  - "[[Eclipse Ditto - Release 3.9.8]]"
   - "[[Bosch IoT Things - Open Source Basis (Eclipse Ditto)]]"
   - "[[DTDL v4 Specification]]"
   - "[[OPC Foundation - OPC UA Online Reference]]"
@@ -28,7 +29,7 @@ tags:
 
 > [!summary] Core Takeaway
 > There is no "one platform" for digital twins. The landscape has three layers:
-> - **Cloud twin services (PaaS):** [[Azure Digital Twins]] and [[AWS IoT TwinMaker]]. They model the twin as a **graph of entities** fed by IoT data. Both are still running, but neither vendor is investing much in them: Microsoft is moving to Fabric and AWS is retiring parts of its IoT portfolio.
+> - **Cloud twin services (PaaS):** [[Azure Digital Twins]] and [[AWS IoT TwinMaker]]. They model the twin as a **graph of entities** fed by IoT data. Both remain documented as available. Fabric Digital Twin Builder is a separate Microsoft preview; AWS service retirements are a lifecycle risk signal, not evidence that TwinMaker itself is discontinued.
 > - **Simulation and visualization:** [[NVIDIA Omniverse]]. It focuses on physically accurate 3D (OpenUSD) and "physical AI", not on IoT state management. Since 2025 it is a **developer SDK** (Kit, libraries, blueprints), not a desktop app suite.
 > - **Open source:** [[Eclipse Ditto]]. It is a self-hosted, vendor-neutral backend for twin state, with active releases (3.9.x in 2026). It is the base of a commercial service (Bosch IoT Things).
 >
@@ -77,7 +78,7 @@ Key point: **no single product covers all layers**. Omniverse has no IoT backend
 | **Back to the asset** | Through IoT Hub / Functions (built by you) | Not native, through other AWS services | Not native | **Native**: desired properties and live messages |
 | **Data stays where?** | Copied into the twin graph | **Referenced at the source** (no duplication) | USD stage (Nucleus/files) | Copied into Ditto (MongoDB) |
 | **Visualization** | ADT Explorer, 3D Scenes Studio (still preview) | Scene composer (glTF) + Grafana plugin | Native RTX rendering (main strength) | Basic Explorer UI; needs external dashboard |
-| **Status 2026** | Active, docs updated Aug 2026. No retirement notice. New Microsoft twin work goes to **Fabric digital twin builder (preview)** | Active in AWS docs. No official end-of-support notice found, but AWS retired sister services (IoT Events, IoT Analytics) | Active and growing. **Launcher deprecated Oct 2025**; DSX Blueprint GA Mar 2026 | Active. **3.9.0 (May 2026)**, patches up to 3.9.6 (Jul 2026) |
+| **Status 2026** | Active, docs updated Aug 2026. No retirement notice. New Microsoft twin work goes to **Fabric digital twin builder (preview)** | Active in AWS docs. No official end-of-support notice found, but AWS retired sister services (IoT Events, IoT Analytics) | Active and growing. **Launcher deprecated Oct 2025**; DSX Blueprint GA Mar 2026 | Active. **3.9.8 (Oct 2026)**; latest release includes an important UI/SSO security fix |
 | **Cost model** | Pay per use: operations, routed messages and query units (per million) | Standard mode: $0.05/entity/month, $1.50 per million API calls, $0.50 per 10,000 queries; or tiered bundle from $220/month | SDK free for development; **Omniverse Enterprise $4,500 per GPU/year** + GPU hardware/cloud | Free license; you pay your own infrastructure (Kubernetes + MongoDB) |
 | **Lock-in** | High (Azure ecosystem), DTDL is open | High (AWS ecosystem), proprietary model | Medium: OpenUSD is open, runtime needs NVIDIA GPUs | Low: self-hosted, open APIs |
 | **Real adopters** | Smart buildings and campuses on Azure; public DTDL ontologies (RealEstateCore, smart cities, energy grid) | Industrial customers on IoT SiteWise; Mendix partnership | BMW, Siemens, Schneider Electric, PTC, Jacobs, Cadence | **Bosch IoT Things** (commercial SaaS built on Ditto), Aloxy, Othermo |
@@ -109,11 +110,11 @@ The three standards **complement each other** rather than compete. A typical ind
 | Exchanges asset data between companies (supply chain, EU passport) | [[Asset Administration Shell (AAS)]] on any platform | IEC standard, Catena-X, Digital Product Passport |
 
 ## 6. Key findings of the audit
-1. **Hyperscalers are pulling back from dedicated twin services.** Azure Digital Twins and AWS IoT TwinMaker still work, but the vendors' focus has moved to data platforms (Microsoft Fabric) or to more general IoT services. Microsoft retires IoT Central in 2029, and AWS retired IoT Events and IoT Analytics. A new project should treat them as a **strategic risk**.
+1. **Check lifecycle evidence separately from roadmap signals.** Azure Digital Twins and AWS IoT TwinMaker remain documented services, and this audit found no official retirement notice for either. Microsoft Fabric Digital Twin Builder is still a distinct preview, while AWS has lifecycle changes affecting other IoT services. Those facts justify checking roadmap, support and migration terms before adoption; they do not prove that ADT or TwinMaker is being retired.
 2. **NVIDIA is moving from apps to "infrastructure".** Omniverse dropped its Launcher and desktop apps and is now sold as SDK, libraries and reference blueprints (DSX for AI factories). It is the leading option for 3D simulation, but it does not replace an IoT state backend.
-3. **Open source gives stability without vendor risk.** Eclipse Ditto has a regular release cycle, a commercial version (Bosch IoT Things) and fits our [[Demo - Gemelo digital del aula]] architecture (MQTT broker → twin state → dashboard). The cost is that we have to run and secure it ourselves.
+3. **Open source reduces vendor dependence but transfers operations to the team.** Eclipse Ditto has an active release stream, a commercial version (Bosch IoT Things) and fits our [[Demo - Gemelo digital del aula]] architecture (MQTT broker → twin state → dashboard). Version 3.9.8 (Oct 2026) fixes a high-severity session-takeover issue affecting the UI/SSO setup and an MQTT reconnection message-loss bug: this is a practical reminder to keep self-hosted deployments patched. The team still operates the infrastructure and security updates.
 4. **Standards are the protection against lock-in.** A twin modeled in DTDL, AAS or WoT and fed through OPC UA/MQTT can move between platforms. The industry is converging here: AAS ↔ OPC UA mappings, and AAS for the EU Digital Battery Passport with Catena-X (guideline Feb 2026).
-5. **The market moves fast.** In 18 months: Omniverse changed its distribution model, Microsoft launched a new twin product, and AWS retired IoT services. Any platform choice should be checked again before starting a project.
+5. **The market moves fast.** Omniverse changed its distribution model, Microsoft introduced a separate Fabric preview, and cloud vendors continue to change IoT product lifecycles. Recheck product status, supported standards, pricing and exit paths before committing.
 
 ## 7. Our demo on each platform
 How the [[Demo - Gemelo digital del aula]] (CO₂/temperature/humidity sensor + "ventilate" command) would be built on each option:
@@ -129,4 +130,4 @@ How the [[Demo - Gemelo digital del aula]] (CO₂/temperature/humidity sensor + 
 - [[Key Components of a Digital Twin]] · [[Bidirectional Data Loop (Closed-Loop Feedback)]]
 - [[Hierarchical Types (Component, Asset, System, Process)]] (scope that each platform covers)
 - [[ISO 23247-1 Digital twin framework for manufacturing]] (framework that does not prescribe formats; these standards fill the gap)
-- [[Guion - Platforms and Technologies]] (presentation script for this section)
+- [[Guion - Platforms and Technologies]] (3–5 minute presentation script for this section)

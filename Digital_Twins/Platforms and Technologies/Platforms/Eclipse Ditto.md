@@ -3,9 +3,10 @@ type: concept_note
 topic: Platforms
 vendor: Eclipse Foundation (open source, EPL-2.0)
 category: Open-source twin backend
-status_2026: Active; 3.9.0 released 2026-05-13, patches up to 3.9.6 (2026-07-28)
+status_2026: Active; latest release 3.9.8 (2026-10-08)
 sources:
   - "[[Eclipse Ditto - Release 3.9.0]]"
+  - "[[Eclipse Ditto - Release 3.9.8]]"
   - "[[Bosch IoT Things - Open Source Basis (Eclipse Ditto)]]"
 tags:
   - digital-twins
@@ -59,9 +60,12 @@ Devices ──MQTT──► Broker ◄──► Ditto Connectivity ──► Thi
 It is often used with other Eclipse IoT projects: **Hono** (device connectivity at scale) and **hawkBit** (software updates to devices).
 
 ## Current status (Nov 2026)
-- **Ditto 3.9.0 (13 May 2026):** focus on *policies, multi-tenancy and reuse*. Adds a W3C WoT Discovery **Thing Directory**, *Time Travel* in the Explorer UI (view past states) and Java 25 support (Eclipse Ditto, 2026).
-- Regular patch releases (3.9.1 → 3.9.6, Jul 2026). The project is actively maintained.
+- **Ditto 3.9.0 (13 May 2026):** focused on *policies, multi-tenancy and reuse*. Added a W3C WoT Discovery **Thing Directory**, *Time Travel* in the Explorer UI and Java 25 support.
+- **Latest release found: 3.9.8 (8 Oct 2026).** This security bugfix resolves CVE-2026-107503, a session-takeover vulnerability affecting the Ditto UI and Swagger UI OIDC/SSO configuration under specific conditions. It also fixes MQTT messages being lost immediately after a connection was established or re-established. Operators should upgrade; the release notes provide affected-version details and workarounds.
 - **Adopters:** Bosch IoT Things (commercial SaaS powered by Ditto), Aloxy (industrial monitoring, mostly on-premise), Othermo (energy platform). In 2024 the Eclipse IoT working group counted 8 public adopters, and most contributions now come from outside Bosch.
+
+## Operations and security
+Ditto is software you operate: deploy its microservices, MongoDB and connectivity layer; configure identity, TLS, network boundaries and backups; monitor availability and apply upgrades. Open source removes a service subscription, but does not remove staffing or infrastructure costs. The 3.9.8 security advisory illustrates why patch management belongs in the total-cost comparison.
 
 ## Cost model
 - License: free (EPL-2.0).

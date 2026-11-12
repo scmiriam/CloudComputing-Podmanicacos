@@ -25,7 +25,8 @@
 
 
 ## 3. Plataforms and technologies (Juan Carlos)
-- Overview: [[Digital Twin Platforms and Standards - Comparative Audit (2026)]] - status audit (Nov 2026) and comparative tables
+- Overview: [[Digital Twin Platforms and Standards - Comparative Audit (2026)]] - expanded audit (12 Nov 2026) and comparative tables
+- Presentation: [[Guion - Platforms and Technologies]] - Spanish oral script, approx. 4–5 minutes
 - Platforms: [[Azure Digital Twins]], [[AWS IoT TwinMaker]], [[NVIDIA Omniverse]] and [[Eclipse Ditto]] (open source)
 - Standards: [[DTDL (Digital Twins Definition Language)]], [[OPC UA]] and [[Asset Administration Shell (AAS)]]
 
@@ -36,6 +37,12 @@
 - [[NVIDIA - Omniverse Launcher Deprecation]]
 - [[NVIDIA - Omniverse DSX Blueprint]]
 - [[Eclipse Ditto - Release 3.9.0]]
+- [[Eclipse Ditto - Release 3.9.8]]
+- [[Microsoft - Azure Digital Twins Pricing]]
+- [[AWS - IoT TwinMaker Pricing]]
+- [[NVIDIA - Omniverse Enterprise]]
+- [[Bosch IoT Things - Open Source Basis (Eclipse Ditto)]]
+- [[IDTA and Catena-X - Digital Battery Passport Guideline]]
 - [[DTDL v4 Specification]]
 - [[OPC Foundation - OPC UA Online Reference]]
 - [[IDTA - AAS Specification Part 1 Metamodel]]
