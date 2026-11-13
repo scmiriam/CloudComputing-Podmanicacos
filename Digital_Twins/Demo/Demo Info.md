@@ -40,14 +40,6 @@ Topics:
 
 To open it from a phone or other computers, publish `index.html` on GitHub Pages. Nothing needs to change: the dashboard connects to the broker from anywhere.
 
-## Demo script (about 3 minutes)
-
-1. Start the sensor and show the terminal: "this is the physical classroom".
-2. Show the dashboard: "this is its twin in the cloud". Data arrives every 2 seconds.
-3. CO₂ rises (full classroom, windows closed). Once it passes 1000 ppm, the red alert fires (about 30–40 s after startup).
-4. Press **Ventilate**: the terminal shows `Command received: VENTILATE` and CO₂ drops live.
-5. Closing idea: if that button were pressed by an automatic rule or an AI model, the twin would go from descriptive to **prescriptive**.
-
 ## Troubleshooting
 
 - **The dashboard doesn't connect**: the classroom Wi-Fi may block port 8884. Try a phone hotspot.
