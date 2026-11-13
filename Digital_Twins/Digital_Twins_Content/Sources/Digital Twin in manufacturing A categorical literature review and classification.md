@@ -3,6 +3,8 @@ type: source
 author: Werner Kritzinger, Matthias Karner, Georg Traar, Jan Henk Pfrommer, Wilfried Sihn
 organization: TU Wien / Fraunhofer Austria
 year: 2018
+url: https://doi.org/10.1016/j.ifacol.2018.08.474
+doi: 10.1016/j.ifacol.2018.08.474
 focus: Academic / Literature Review / Manufacturing Systems
 document_id: Kritzinger et al.
 tags:

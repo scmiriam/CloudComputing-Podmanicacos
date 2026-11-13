@@ -3,6 +3,7 @@ type: source
 author: Maggie Mae Armstrong, Nick Gallagher, Michael Goodwin
 organization: IBM
 year: 2020
+url: https://www.ibm.com/think/topics/digital-twin
 updated: 2026
 focus: Theoretical / Business
 document_id: IBM

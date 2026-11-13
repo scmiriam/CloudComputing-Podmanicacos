@@ -3,6 +3,8 @@ type: source
 author: John Vickers, et al.
 organization: NASA (National Aeronautics and Space Administration)
 year: 2010
+url: https://web.archive.org/web/20111216162510/http://www.nasa.gov/pdf/501321main_TA11-MSITP-DRAFT-Nov2010-A1.pdf
+original_url: https://www.nasa.gov/pdf/501321main_TA11-MSITP-DRAFT-Nov2010-A1.pdf (no longer online; archived copy above)
 focus: Aerospace Engineering / Technical / Computational Modeling
 document_id: NASA Technology Area 11 (TA11)
 tags:

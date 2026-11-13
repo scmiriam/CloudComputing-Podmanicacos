@@ -3,6 +3,8 @@ type: source
 author: Michael Grieves, John Vickers
 organization: Florida Institute of Technology / NASA
 year: 2017
+url: https://doi.org/10.1007/978-3-319-38756-7_4
+doi: 10.1007/978-3-319-38756-7_4
 focus: Theoretical / Systems Engineering / Product Lifecycle Management (PLM)
 document_id: Grieves & Vickers
 tags:
